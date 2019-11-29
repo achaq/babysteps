@@ -19,12 +19,10 @@
   <div class="img-container">
     <img #image   src="http://localhost:8080/image/{{path}}/{{page}}" crossorigin>
   </div>
-  <img [src]="imageDestination" class="img-preview">
-
   <mat-card-content>
-    <p>
-      select the area to anonymize
-    </p>
+
+    <img [src]="imageDestination" class="img-preview">
+
   </mat-card-content>
 </mat-card>
 
