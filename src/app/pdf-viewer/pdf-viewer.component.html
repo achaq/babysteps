@@ -1,0 +1,31 @@
+<div class="all">
+<div class="box">
+  <mat-card-actions>
+    <button mat-raised-button id="anonymize" (click)="anonymize()">anonymize</button>
+    <button mat-raised-button  id="home" (click)="goback()">select another file</button>
+  </mat-card-actions>
+
+</div>
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{name}}</mat-card-title>
+    <mat-card-subtitle>page N : {{page}}</mat-card-subtitle>
+    <h3 id="select"  >select the area to anonymize</h3>
+    <button id="addzone" mat-raised-button (click)="addzone()">Add zone</button>
+  </mat-card-header>
+<!--  <img id="image2"  mat-card-image src="http://localhost:8080/image/{{path}}/{{page}}" alt="Photo of the page N : {{page}}" >-->
+    <!--  <img id="image" (mousemove)="show($event)" (mouseleave)="leave($event)" mat-card-image src="" >-->
+  <div class="img-container">
+    <img #image   src="http://localhost:8080/image/{{path}}/{{page}}" crossorigin>
+  </div>
+  <img [src]="imageDestination" class="img-preview">
+
+  <mat-card-content>
+    <p>
+      select the area to anonymize
+    </p>
+  </mat-card-content>
+</mat-card>
+
+</div>

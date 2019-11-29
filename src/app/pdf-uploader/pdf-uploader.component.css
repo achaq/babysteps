@@ -1,0 +1,54 @@
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+.my-drop-zone { border: dotted 5px lightgray; }
+.nv-file-over { border: dotted 3px red; } /* Default class applied to drop zones on over */
+.another-file-over-class { border: dotted 3px green; }
+
+html, body { height: 100%; }
+.underline{
+  text-decoration: underline;
+}
+.my-drop-zone{
+  border: dotted 3px lightgray;
+  padding: 30px;
+}
+.nv-file-over {
+  border: dotted 3px red;
+}
+.mat-card{
+  border-style: groove;
+  border-radius: 30px
+}
+.nl-up-col {
+  color: #43A047;
+}
+.nl-cl-col {
+  color: #F9A825;
+}
+.nl-rm-col {
+  color: #F44336;
+}
+.nl-upAll-col {
+  background-color: #43A047; ;
+}
+.nl-clAll-col {
+  background-color: #F9A825; ;
+}
+.nl-rmAll-col {
+  background-color: #F44336; ;
+}
+.nl-rnd-border {
+  border: groove;
+  border-radius: 30px;
+  padding: 10px;
+}
+.nl-btn-pad {
+  padding-left: inherit;
+}
+#uploadDocument {
+  color: transparent;
+}
+
+.mat-card{
+  width: 80%;
+  max-width: 1100px;
+}

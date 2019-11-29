@@ -1,0 +1,58 @@
+.example-card {
+  width: 60%;
+  position: absolute;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.example-header-image {
+  background-image: url('https://jcsatanas.fr/wp-content/uploads/2016/09/google-incognito-6.jpg');
+  background-size: cover;
+}
+p {
+  font-family: Lato;
+}
+
+.all{
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+.img-container {
+  float: left;
+}
+
+#addzone{
+height: 80%;
+  margin-right: 5%;
+  margin-left: 20%;
+  width: 80px;
+  color: #335599;
+}
+
+.img-preview {
+  width: 18%;
+  height: 100px;
+  float: left;
+  margin-left: 2%;
+}
+.img-container {
+  width: 80%;
+  lenght:100%;
+}
+
+/* Limit image width to avoid overflow the container */
+img {
+  display: block;
+  /* This rule is very important, please don't ignore this */
+  max-width: 100%;
+}
+
+#anonymize{
+  width: 15%;
+color: forestgreen;
+}
+#select{
+color: #335599;
+}

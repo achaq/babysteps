@@ -1,0 +1,120 @@
+<div class="nl-Dialog--header">
+</div>
+​
+<mat-dialog-content fxLayout="column" fxLayoutGap="10px">
+  <div class="underline" (click)="openDialogManual()"> <mat-icon color="primary">help</mat-icon>Help</div>
+  <div>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title><b>Document(s)</b></mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div fxLayout="row" fxLayoutAlign="start center">
+          <div fxFlex="30">
+            <input id="uploadDocument" type="file" name="filename" ng2FileSelect (onFileSelected)="onFileSelectedOrDropped($event)" [uploader]="uploader" multiple  />
+          </div>
+          <div fxFlex="70"  ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
+               (fileOver)="fileOverBase($event)" (onFileDrop)="onFileSelectedOrDropped($event)"
+               class="well my-drop-zone text-center"
+               [uploader]="uploader">
+            Drag & Drop
+          </div>
+        </div>
+        <p>Nombre de fichiers : {{uploader?.queue?.length}}</p>
+        ​
+        <div *ngIf="uploader.queue.length!==0">
+          <table class="table">
+            <thead>
+            <tr>
+              <th width="75%">Name</th>
+              <th>Size</th>
+              <!--<th>Progress</th>-->
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+            </thead>
+            ​
+            <tbody>
+            <tr *ngFor="let item of uploader.queue">
+              <td><strong>{{ item?.file?.name }}</strong></td>
+              <td *ngIf="uploader.options.isHTML5" nowrap>{{ item?.file?.size/1024/1024 | number:'.2' }} MB</td>
+              <!-- !!!!!!!!!!do not delete this part of code, it is business improvement-->
+              <!--<td *ngIf="uploader.options.isHTML5">
+                  <div class="progress" style="margin-bottom: 0;">
+                      <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': item.progress + '%' }"></div>
+                  </div>
+              </td>-->
+              <td class="text-center">
+                <span *ngIf="item.isUploaded && item.isSuccess"><mat-icon class="nl-up-col">done</mat-icon></span>
+                <span *ngIf="item.isUploaded && !item.isSuccess"><mat-icon class="nl-rm-col">cancel</mat-icon></span>
+              </td>
+              <td nowrap>
+                <!-- !!!!!!!!do not delete this part of code, it is business improvement-->
+                <!--<button mat-icon-button (click)="onUploadAll()" [disabled]="item.isReady || item.isUploading || item.isSuccess">
+                    <mat-icon class="nl-up-col">cloud_upload</mat-icon>
+                </button>
+                <button mat-icon-button (click)="item.cancel()" [disabled]="!item.isUploading">
+                    <mat-icon class="nl-cl-col">clear</mat-icon>
+                </button>-->
+                <button  mat-icon-button (click)="[removeFile(item.file.rawFile), item.remove()]">
+                  <mat-icon class="nl-rm-col">remove</mat-icon>
+                </button>
+              </td>
+            </tr>
+            </tbody>
+            ​
+          </table>
+          ​
+        </div>
+        ​
+        <div>
+          <div class="nl-rnd-border">Progress:
+            <mat-progress-bar color="warn" mode="determinate" [value]="uploader.progress"></mat-progress-bar>
+          </div>
+          <div class="nl-btn-pad">
+            <button mat-flat-button class="nl-upAll-col" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+              <mat-icon class="white-icon s-24">cloud_upload</mat-icon>Upload all
+            </button>
+            <!--<button mat-flat-button class="nl-clAll-col" (click)="uploader.cancelAll()" [disabled]="!uploader.isUploading">
+                <mat-icon class="white-icon s-24">clear</mat-icon>Cancel all
+            </button>-->
+            <button mat-flat-button class="nl-rmAll-col" (click)="clearFileList()" [disabled]="!uploader.queue.length">
+              <mat-icon class="white-icon s-24">remove</mat-icon>Remove all
+            </button>
+          </div>
+          ​
+        </div>
+      </mat-card-content>
+    </mat-card>
+    ​
+    <mat-card *ngIf="done">
+      <mat-card-header>
+        <mat-card-title><b>  </b></mat-card-title>
+      </mat-card-header>
+      ​
+<!--      <form [formGroup]="data" (ngSubmit)="onSubmit(data.value)">-->
+
+
+<!--      <div>-->
+<!--      <label for="page">-->
+<!--        Page-->
+<!--      </label>-->
+<!--      <input id="page" type="number" formControlName="page">-->
+<!--    </div>-->
+
+
+            <form [formGroup]="data" (ngSubmit)="onSubmit(data.value)">
+              <h6> If your file contains several pages, select the page to anonymize:</h6>
+              <mat-form-field>
+        <input matInput placeholder="Page Number" formControlName="page" id="pages" type="number" class="example-right-align">
+      </mat-form-field>
+      <button class="button" type="submit"       mat-stroked-button color="primary" >Anonymize</button>
+              <h6>The files are only used to perform the automatic process of anonymisation. The original documents are immediately deleted when the anonymisation process is finished. The anonymized documents are available for download until you close the web page.</h6>
+            </form>
+
+    </mat-card>
+
+
+
+  </div>
+</mat-dialog-content>
