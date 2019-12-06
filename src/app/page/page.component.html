@@ -1,0 +1,46 @@
+
+<section>
+  <h2> 2- choose the page </h2>
+
+  <nav>
+    <ol class="cd-multi-steps text-bottom count">
+      <li class="visited"><a href="main">Upload</a></li>
+      <li class="current" ><em href="#0">Page</em></li>
+      <li class=""><em>Anonymization</em></li>
+      <li><em>Review</em></li>
+    </ol>
+  </nav>
+</section>
+
+<mat-card-header>
+  <button   class="btn btn-primary"  type="button" (click)="goback()"  style="border: #335599; font-size: 2rem; width: 200px; margin-left: 20%; font-family: Arial"  >Back</button>
+  <div>
+    <!--          <button   class="btn btn-primary"  [disabled]="1" type="button" >Back</button>-->
+    <button   class="btn btn-primary"  type="button" (click)="onSubmit(data.value)"  style="border: #335599; width: 200px; font-size: 2rem; margin-left: 80%; font-family: Arial"  >Next</button>
+  </div>
+</mat-card-header>
+
+<mat-card>
+
+<section>
+<!--      <form [formGroup]="data" (ngSubmit)="onSubmit(data.value)">-->
+
+
+<!--      <div>-->
+<!--      <label for="page">-->
+<!--        Page-->
+<!--      </label>-->
+<!--      <input id="page" type="number" formControlName="page">-->
+<!--    </div>-->
+
+
+<form [formGroup]="data" (ngSubmit)="onSubmit(data.value)">
+  <h6 style="padding-bottom: 1em"> If your file contains several pages, select the one where you want to select the areas that should be anonymized:</h6>
+  <mat-form-field>
+    <input matInput placeholder="Page Number" formControlName="page" id="pages" type="number" class="example-right-align">
+  </mat-form-field>
+  <button class="button" type="submit"       mat-stroked-button color="primary" >Anonymize</button>
+  <h6><small>The files are only used to perform the automatic process of anonymisation. The original documents are immediately deleted when the anonymisation process is finished. The anonymized documents are available for download until you close the web page.</small></h6>
+</form>
+</section>
+</mat-card>

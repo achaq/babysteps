@@ -1,1 +1,52 @@
-<router-outlet></router-outlet>
+<section style="padding: unset">
+  <mat-toolbar class="mat-elevation-z5" >
+    <img src="../assets/contract.svg" (click)="gohome()" style="width: 50px">
+    <button mat-icon-button (click)="gohome()" style="color: #4b87e0 ;   font-family: Lato;
+ "> PDF Anonymization</button>
+    <span class="spacer"></span>
+    <div class="loginSection">
+      <button mat-button>
+        Login
+      </button>
+    </div>
+  </mat-toolbar>
+
+<!--  <header class="cd-header container flex justify-between items-center">-->
+<!--    <a href="#0" class="cd-logo">-->
+<!--      <svg width="124" height="23" viewBox="0 0 124 23"><title>Go to homepage</title><rect width="70" height="23" fill="#c96aa4"/><rect x="70" width="27" height="23" fill="#9a57bd"/><rect x="97" width="27" height="23" fill="#fff"/></svg>-->
+<!--    </a>-->
+
+<!--    <a href="#cd-3d-nav" class="cd-header__nav-trigger" aria-label="Toggle menu">-->
+<!--      <span aria-hidden="true"></span>-->
+<!--    </a>-->
+<!--  </header>-->
+
+
+
+  <div class="container">
+    <div class="board">
+      <!-- Navigation Area (Circular Tabs) -->
+      <!-- End Navigation Area (Circular Tabs) -->
+
+      <!-- Content Area -->
+      <div class="tab-content">
+        <!-- Routed view  -->
+        <div class="nl-Dialog--header">
+        </div>
+
+      <mat-dialog-content fxLayout="column" fxLayoutGap="10px" >
+          <div>
+        <router-outlet></router-outlet>
+
+          </div>
+        </mat-dialog-content>
+
+        ​
+      </div>
+      <!-- End Content Area -->
+    </div>
+  </div>
+
+
+
+</section>

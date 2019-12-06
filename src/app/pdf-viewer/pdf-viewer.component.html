@@ -1,29 +1,56 @@
-<div class="all">
-<div class="box">
-  <mat-card-actions>
-    <button mat-raised-button id="anonymize" (click)="anonymize()">anonymize</button>
-    <button mat-raised-button  id="home" (click)="goback()">select another file</button>
-  </mat-card-actions>
+<section>
+  <h2> 2- select the area, and select the method </h2>
 
-</div>
+  <nav>
+    <ol class="cd-multi-steps text-bottom count">
+      <li class="visited"><a href="main">Upload</a></li>
+      <li class="visited" ><em href="#0">Page</em></li>
+      <li class="current"><em>Anonymization</em></li>
+      <li><em>Review</em></li>
+    </ol>
+  </nav>
+</section>
 <mat-card class="example-card">
+  <div class="box">
+    <mat-card-actions>
+      <button mat-raised-button id="anonymize" (click)="anonymize3()">Anonimize with mark-page </button>
+      <button mat-raised-button id="anonymize2" (click)="anonymize2()">Anonymize with OCR</button>
+      <button mat-raised-button  id="home" (click)="goback()">select another file</button>
+      <button mat-raised-button  id="view" ><a target="_blank" *ngIf="succ"  href="http://localhost:8080/anonym/{{path}}" crossorigin>Preview</a></button>
+
+<!--<a class="btn btn-primary" data-target="#modalIMG" data-toggle="modal" >View Image</a>-->
+<!--      <div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" id="modalIMG" role="dialog" tabindex="-1">-->
+<!--        <div class="modal-dialog modal-lg" role="document">-->
+<!--          <div class="modal-content">-->
+<!--            <div class="modal-body mb-0 p-0">-->
+<!--              <img src="https://i3.ytimg.com/vi/vr0qNXmkUJ8/maxresdefault.jpg" alt="" style="width:100%">-->
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
+<!--              <div><a href="https://i3.ytimg.com/vi/vr0qNXmkUJ8/maxresdefault.jpg" target="_blank">Download</a></div>-->
+<!--              <button class="btn btn-outline-primary btn-rounded btn-md ml-4 text-center" data-dismiss="modal" type="button">Close</button>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+    </mat-card-actions>
+
+  </div>
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
     <mat-card-title>{{name}}</mat-card-title>
     <mat-card-subtitle>page N : {{page}}</mat-card-subtitle>
-    <h3 id="select"  >select the area to anonymize</h3>
-    <button id="addzone" mat-raised-button (click)="addzone()">Add zone</button>
   </mat-card-header>
 <!--  <img id="image2"  mat-card-image src="http://localhost:8080/image/{{path}}/{{page}}" alt="Photo of the page N : {{page}}" >-->
     <!--  <img id="image" (mousemove)="show($event)" (mouseleave)="leave($event)" mat-card-image src="" >-->
   <div class="img-container">
-    <img #image   src="http://localhost:8080/image/{{path}}/{{page}}" crossorigin>
+    <img #image class="imaage"  src="http://localhost:8080/image/{{path}}/{{page}}" crossorigin>
   </div>
   <mat-card-content>
-
+    <button id="addzone" mat-raised-button (click)="addzone()">Add the Selectedzone</button>
+    <h6 style="font-family: fantasy; padding: 0.7em"> Preview of the current selection</h6>
     <img [src]="imageDestination" class="img-preview">
 
   </mat-card-content>
 </mat-card>
 
-</div>

@@ -2,9 +2,17 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 /* You can add global styles to this file, and also import other style files */
 @import "~cropperjs/dist/cropper.min.css";
+@import url("//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
+@import url("//netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,600");
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+@import "assets/css/reset.css";
+@import "assets/css/style.css";
+
+
 body {
   margin: 0;
-  padding: 50px 0;
   font-family: sans-serif;
   background-color: rgba(205, 217, 237, 0.5215686274509804);
 }
@@ -19,7 +27,6 @@ body {
   text-align: center;
   margin: 0 auto;
 }
-
 .wrapper h2 {
   margin: 0;
   line-height: normal;
@@ -50,4 +57,40 @@ body {
   outline: 0;
   border-radius: 5px;
   cursor: pointer;
+}
+mat-toolbar {
+  overflow: hidden;
+  width: 100%;
+  min-width: 475px;
+  padding: 10px 20px 10px 10px;
+  font-size: 20px;
+  position: relative;
+  color: #FFF;
+  z-index: 1;
+}
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #eee;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+mat-toolbar:after {
+  color: white;
+  box-shadow: 5px 10px #888888;
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 25%;
+  min-width: 200px;
+  height: 100%;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  background: #333;
+  transform-origin: bottom left;
+  -ms-transform: skew(-30deg, 0deg);
+  -webkit-transform: skew(-30deg, 0deg);
+  transform: skew(-30deg, 0deg);
 }

@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {FormBuilder} from '@angular/forms';
 import {FileUploader} from 'ng2-file-upload';
 // import {ToastrService} from 'ngx-toastr';
 import {Router} from '@angular/router';
@@ -9,8 +8,6 @@ import {ToastrService} from 'ngx-toastr';
 
 
 const URL = 'http://0.0.0.0:8080/api/upload';
-let path = '';
-let name = '';
 
 @Component({
   selector: 'app-pdf-uploader',
@@ -29,14 +26,16 @@ export class PdfUploaderComponent implements OnInit {
   public done = false;
   page: number;
   data;
+   name = '';
+
   private filesToUpload: Array<File>;
   private maxFileSize = 20 * 1024 * 1024;
   private size = 0;
   private draftList = [];
+  public path = '';
 
-  constructor(private router: Router, private http: HttpClient, private formBuilder: FormBuilder, private toastr: ToastrService,
+  constructor(private router: Router, private http: HttpClient, private toastr: ToastrService,
   ) {
-    this.data = this.formBuilder.group({page: ''});
     this.filesToUpload = [];
   }
 
@@ -55,19 +54,17 @@ export class PdfUploaderComponent implements OnInit {
     };
     this.uploader.onCompleteItem = (item: any, status: any) => {
       console.log('Uploaded File Details:', item);
-      name = item.file.name;
+      this.name = item.file.name;
       // tslint:disable-next-line:no-shadowed-variable
-      path = JSON.parse(status).image_path;
+      this.path = JSON.parse(status).image_path;
       // tslint:disable-next-line:triple-equals
-      if (path != '') {
+      if (this.path != '') {
         this.done = true;
       }
-      console.log(path);
+      console.log(this.path);
     };
 
   }
-
-​
 
   public onFileSelectedOrDropped(event: FileList) {
     console.log('on file selected ');
@@ -77,19 +74,14 @@ export class PdfUploaderComponent implements OnInit {
     }
   }
 
-​
-
   public fileOverBase(e: any): void {
     this.hasBaseDropZoneOver = e;
   }
 
-​
 
   public progressCalcul(files: Array<File>) {
     return 100 / files.length;
   }
-
-​
 
   clearFileList() {
     this.uploader.clearQueue();
@@ -102,27 +94,13 @@ export class PdfUploaderComponent implements OnInit {
     this.filesToUpload.splice(index, 1);
   }
 
-  onSubmit(getpage) {
-    //   // this.fileData = target.files[0] as File;
-    //   console.log('Your doc has been submitted', data);
-    //   const formData = data;
-    //   console.log(formData);
-    //   // formData.append('page', this.page.toString());
-    //   this.http.post(URL, formData, {reportProgress: true, observe: 'events'})
-    //     .subscribe(events => {
-    //       if (events.type === HttpEventType.UploadProgress) {
-    //         console.log('Upload progress: ', Math.round(events.loaded / events.total * 100) + '%');
-    //       } else if (events.type === HttpEventType.Response) {
-    //         console.log(events);
-    //       }
-    // });
-    const page = getpage.page;
-    this.router.navigate(['/pdf'], {state: {data: {path, page, name}}});
-
-  }
 
   openDialogManual() {
     console.log('we should create a diolog ');
+  }
+
+  next() {
+this.router.navigate(['page'], {state: {data: { path : this.path, name : this.name}}});
   }
 }
 

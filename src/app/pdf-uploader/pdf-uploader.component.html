@@ -1,17 +1,32 @@
-<div class="nl-Dialog--header">
-</div>
-​
-<mat-dialog-content fxLayout="column" fxLayoutGap="10px">
-  <div class="underline" (click)="openDialogManual()"> <mat-icon color="primary">help</mat-icon>Help</div>
+<!--<app-navbar> </app-navbar>-->
+
+<section>
+  <h2> 1- Upload the file(s) </h2>
+
+  <nav>
+    <ol class="cd-multi-steps text-bottom count">
+      <li class="current"><a href="#0">Upload</a></li>
+      <li class="" ><em href="#0">Page</em></li>
+      <li class=""><em>Anonymization</em></li>
+      <li><em>Review</em></li>
+    </ol>
+  </nav>
+</section>
+
+<mat-card-header>
+  <mat-card-title><b>Start by Uploading your File(s)</b></mat-card-title>
   <div>
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title><b>Document(s)</b></mat-card-title>
-      </mat-card-header>
+    <!--          <button   class="btn btn-primary"  [disabled]="1" type="button" >Back</button>-->
+    <button   class="btn btn-primary"  [disabled]="!done" type="button" (click)="next(path)" style="border: #335599; font-size: 2rem; width: 200px; margin-left: 80%; font-family: Arial"  >Next</button>
+  </div>
+</mat-card-header>
+<mat-card>
+
       <mat-card-content>
         <div fxLayout="row" fxLayoutAlign="start center">
           <div fxFlex="30">
             <input id="uploadDocument" type="file" name="filename" ng2FileSelect (onFileSelected)="onFileSelectedOrDropped($event)" [uploader]="uploader" multiple  />
+
           </div>
           <div fxFlex="70"  ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
                (fileOver)="fileOverBase($event)" (onFileDrop)="onFileSelectedOrDropped($event)"
@@ -85,36 +100,5 @@
           ​
         </div>
       </mat-card-content>
-    </mat-card>
-    ​
-    <mat-card *ngIf="done">
-      <mat-card-header>
-        <mat-card-title><b>  </b></mat-card-title>
-      </mat-card-header>
-      ​
-<!--      <form [formGroup]="data" (ngSubmit)="onSubmit(data.value)">-->
+</mat-card>
 
-
-<!--      <div>-->
-<!--      <label for="page">-->
-<!--        Page-->
-<!--      </label>-->
-<!--      <input id="page" type="number" formControlName="page">-->
-<!--    </div>-->
-
-
-            <form [formGroup]="data" (ngSubmit)="onSubmit(data.value)">
-              <h6> If your file contains several pages, select the page to anonymize:</h6>
-              <mat-form-field>
-        <input matInput placeholder="Page Number" formControlName="page" id="pages" type="number" class="example-right-align">
-      </mat-form-field>
-      <button class="button" type="submit"       mat-stroked-button color="primary" >Anonymize</button>
-              <h6>The files are only used to perform the automatic process of anonymisation. The original documents are immediately deleted when the anonymisation process is finished. The anonymized documents are available for download until you close the web page.</h6>
-            </form>
-
-    </mat-card>
-
-
-
-  </div>
-</mat-dialog-content>

@@ -1,8 +1,7 @@
 .example-card {
-  width: 60%;
+  width: 70%;
   position: absolute;
-  margin-left: 20%;
-  margin-right: 20%;
+  /*margin-right: 20%;*/
 }
 
 .example-header-image {
@@ -25,10 +24,10 @@ p {
 
 #addzone{
 height: 80%;
-  margin-right: 5%;
-  margin-left: 20%;
-  width: 80px;
-  color: #335599;
+  /*margin-right: 5%;*/
+  margin-left: 2%;
+  background-color: cornflowerblue;
+  color: currentColor;
 }
 
 .img-preview {
@@ -36,6 +35,7 @@ height: 80%;
   height: 100px;
   float: left;
   margin-left: 2%;
+  border: solid black;
 }
 .img-container {
   width: 80%;
@@ -50,9 +50,39 @@ img {
 }
 
 #anonymize{
-  width: 15%;
+  /*width: 15%;*/
 color: forestgreen;
+}
+#anonymize2{
+  /*width: 15%;*/
+  color: forestgreen;
 }
 #select{
 color: #335599;
 }
+
+h4 { font-family: 'Open Sans'; margin: 0;}
+
+.modal,.modal-open {
+  padding-right: 0!important
+}
+
+.modal-open {
+  overflow: auto
+}
+
+.scrollable {
+  overflow-y: auto
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-start;}
+.modal-footer .btn {
+  position: absolute;
+  right: 10px;
+}
+
+
+
+

@@ -2,12 +2,15 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {PdfViewerComponent} from './pdf-viewer/pdf-viewer.component';
 import {PdfUploaderComponent} from './pdf-uploader/pdf-uploader.component';
+import {PageComponent} from './page/page.component';
+import {PrincipaleComponent} from './principale/principale.component';
 
 
 const routes: Routes = [
   { path: 'pdf', component: PdfViewerComponent},
-  { path: '**', component: PdfUploaderComponent}
-
+  { path: 'page', component: PageComponent},
+  { path: 'main', component: PdfUploaderComponent},
+  { path: 'principale', component: PrincipaleComponent }
 ];
 
 @NgModule({

@@ -17,19 +17,28 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatProgressBarModule,
-  MatTableModule
+  MatProgressBarModule, MatStepperModule,
+  MatTableModule, MatToolbarModule
 } from '@angular/material';
 import {ToastrModule} from 'ngx-toastr';
 import {ImageCropperModule} from 'ngx-image-cropper';
+import { NavbarComponent } from './navbar/navbar.component';
+import { PageComponent } from './page/page.component';
+import { PrincipaleComponent } from './principale/principale.component';
+import { CarouselModule, WavesModule } from 'angular-bootstrap-md';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
     PdfViewerComponent,
     PdfUploaderComponent,
+    NavbarComponent,
+    PageComponent,
+    PrincipaleComponent,
   ],
   imports: [
+    NgbModule,
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
@@ -43,10 +52,14 @@ import {ImageCropperModule} from 'ngx-image-cropper';
     MatIconModule,
     MatProgressBarModule,
     MatTableModule,
+    CarouselModule,
+    WavesModule,
     ToastrModule.forRoot(),
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatStepperModule,
+    MatToolbarModule,
     // ToastrModule added
 
   ],
