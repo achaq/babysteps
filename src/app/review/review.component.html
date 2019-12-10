@@ -1,0 +1,24 @@
+<section>
+  <h2> Finalising  </h2>
+
+  <nav>
+    <ol class="cd-multi-steps text-bottom count">
+      <li class="visited"><a href="main">Upload</a></li>
+      <li class="visited" ><em href="#0">Page</em></li>
+      <li class="visited"><em>Anonymization</em></li>
+      <li class ="current"><em>Review</em></li>
+    </ol>
+  </nav>
+</section>
+
+<div style="text-align:center" *ngIf="!succ">
+  <i _ngcontent-dbo-c13="" class="fa-3x fas fa-circle-notch fa-spin" style="color: #c0680f;"></i>
+  <br><br>
+  <span style="font-size: 2.6rem;">File loading in progress</span>
+</div>
+
+<div style="text-align:center" *ngIf="succ">
+  <i class="fa-3x fas fa-check-circle" style="color: green"></i>
+  <br><br>
+  <span style="font-size: 2.6rem;">File is downloaded</span>
+</div>

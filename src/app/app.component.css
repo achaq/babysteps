@@ -68,3 +68,9 @@ mat-toolbar {
 a {
   font-family: Lato;
 }
+
+
+mat-dialog-container{
+  display: contents;
+  background-color: #959fa5;
+}

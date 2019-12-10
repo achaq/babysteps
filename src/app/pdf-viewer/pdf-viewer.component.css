@@ -86,3 +86,12 @@ h4 { font-family: 'Open Sans'; margin: 0;}
 
 
 
+.cropper-crop-box{
+  width: 150px;
+  height: 80px;
+}
+
+
+mat-dialog-container{
+  background-color: #959fa5;
+}

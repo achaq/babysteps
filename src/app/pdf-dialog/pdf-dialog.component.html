@@ -1,0 +1,16 @@
+<div mat-dialog-actions>
+  <button style="margin-bottom: 15px; fill: #888888" (click)="onNoClick()" mat-icon-button aria-label="Close">
+    <mat-icon>close</mat-icon>
+  </button></div>
+
+
+
+<div class="pdf-container"  style="background-color: #959fa5">
+  <pdf-viewer [src]="src"
+              [original-size]="true"
+              [page]="page"
+              [show-all] = "false"
+              [fit-to-page]="true"
+              [stick-to-page]="true"
+  ></pdf-viewer>
+</div>

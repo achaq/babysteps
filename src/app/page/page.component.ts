@@ -10,15 +10,16 @@ import {HttpClient} from '@angular/common/http';
 })
 export class PageComponent implements OnInit {
   private data: FormGroup;
-  private page: string;
   private path: any;
+  private page: number;
   name: any;
+  private succ: boolean;
 
-  constructor(private router: Router, private formBuilder: FormBuilder) {
+  constructor(private router: Router, private formBuilder: FormBuilder, private http: HttpClient) {
 
     this.data = this.formBuilder.group({page: ''});
     this.path = this.router.getCurrentNavigation().extras.state.data.path;
-    console.log(this.path);
+    console.log('paaath : ' + this.path);
     this.name = this.router.getCurrentNavigation().extras.state.data.name;
     console.log(this.name);
 
@@ -41,12 +42,22 @@ export class PageComponent implements OnInit {
     //         console.log(events);
     //       }
     // });
-    const page = getpage.page;
-    this.router.navigate(['/pdf'], {state: {data: { path : this.path, page, name : this.name}}});
-
+    this.page = getpage.page;
+    const URL = 'http://0.0.0.0:8080/page/'
+    console.log(URL);
+    this.http.post(URL, {page : this.page, path : this.path}).subscribe(status => {
+      console.log('we are back ');
+      console.log(JSON.stringify(status));
+      this.succ = true;
+    });
   }
 
   goback() {
     this.router.navigate(['/main']);
+  }
+
+  next() {
+        this.router.navigate(['/pdf'], {state: {data: { path : this.path, page : this.page , name : this.name}}});
+
   }
 }

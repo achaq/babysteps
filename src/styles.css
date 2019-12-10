@@ -5,6 +5,7 @@
 @import url("//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
 @import url("//netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.css");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,600");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css");
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
 @import "assets/css/reset.css";
@@ -93,4 +94,8 @@ mat-toolbar:after {
   -ms-transform: skew(-30deg, 0deg);
   -webkit-transform: skew(-30deg, 0deg);
   transform: skew(-30deg, 0deg);
+}
+.mat-dialog-container{
+  display: contents;
+  background-color: #959fa5;
 }

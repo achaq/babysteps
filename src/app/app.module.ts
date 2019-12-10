@@ -9,6 +9,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {PdfUploaderComponent} from './pdf-uploader/pdf-uploader.component';
 import {FileUploadModule} from 'ng2-file-upload';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { PdfViewerModule } from 'ng2-pdf-viewer'; // <- import PdfViewerModule
 
 import {
   MatButtonModule,
@@ -17,7 +18,7 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
-  MatProgressBarModule, MatStepperModule,
+  MatProgressBarModule, MatProgressSpinnerModule, MatSlideToggleModule, MatStepperModule,
   MatTableModule, MatToolbarModule
 } from '@angular/material';
 import {ToastrModule} from 'ngx-toastr';
@@ -27,6 +28,10 @@ import { PageComponent } from './page/page.component';
 import { PrincipaleComponent } from './principale/principale.component';
 import { CarouselModule, WavesModule } from 'angular-bootstrap-md';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PdfDialogComponent } from './pdf-dialog/pdf-dialog.component';
+import { ReviewComponent } from './review/review.component';
+import {ColorSketchModule} from 'ngx-color/sketch';
+import {ColorPickerModule} from 'ngx-color-picker';
 
 @NgModule({
   declarations: [
@@ -36,6 +41,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NavbarComponent,
     PageComponent,
     PrincipaleComponent,
+    PdfDialogComponent,
+    ReviewComponent,
   ],
   imports: [
     NgbModule,
@@ -48,6 +55,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ReactiveFormsModule,
     FileUploadModule,
     MatCardModule,
+    PdfViewerModule, // <- Add PdfViewerModule to imports
     MatDialogModule,
     MatIconModule,
     MatProgressBarModule,
@@ -60,9 +68,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatButtonModule,
     MatStepperModule,
     MatToolbarModule,
+    MatDialogModule,
+    MatSlideToggleModule,
+    MatProgressSpinnerModule,
+    ColorSketchModule,
+    ColorPickerModule,
     // ToastrModule added
 
   ],
+  entryComponents : [PdfDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

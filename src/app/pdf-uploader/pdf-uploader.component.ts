@@ -100,7 +100,8 @@ export class PdfUploaderComponent implements OnInit {
   }
 
   next() {
-this.router.navigate(['page'], {state: {data: { path : this.path, name : this.name}}});
+    console.log('this paaath ' + this.path)
+    this.router.navigate(['page'], {state: {data: { path : this.path, name : this.name}}});
   }
 }
 

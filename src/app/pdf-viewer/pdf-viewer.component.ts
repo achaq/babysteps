@@ -3,7 +3,9 @@ import {Router} from '@angular/router';
 import Cropper from 'cropperjs';
 import {HttpClient} from '@angular/common/http';
 import {ToastrService} from 'ngx-toastr';
-
+import {MatDialog, MatDialogConfig, MatSlideToggle} from '@angular/material';
+import {PdfDialogComponent} from '../pdf-dialog/pdf-dialog.component';
+import { ColorPickerService, Cmyk } from 'ngx-color-picker';
 @Component({
   selector: 'app-pdf-viewer',
   templateUrl: './pdf-viewer.component.html',
@@ -14,6 +16,12 @@ export class PdfViewerComponent implements AfterViewInit {
   path: string;
   name: string;
   URL: any;
+
+  public selectedColor = 'color1';
+
+  public color1 = '#006777';
+  @Input()
+  checked: boolean;
   @ViewChild('image', {static: false})
   public imageElement: ElementRef;
   public imageDestination: string;
@@ -28,9 +36,11 @@ export class PdfViewerComponent implements AfterViewInit {
   private HT: number[] = [];
   private Zone: number;
   private succ = false;
+  state: any;
 
 
-  constructor(private route: Router, private http: HttpClient, private toastr: ToastrService) {
+  // tslint:disable-next-line:max-line-length
+  constructor(private route: Router, private http: HttpClient,  private cpService: ColorPickerService, private toastr: ToastrService, private dialog: MatDialog) {
     console.log('here construct');
     this.imageDestination = '';
     this.page = this.route.getCurrentNavigation().extras.state.data.page;
@@ -44,6 +54,8 @@ export class PdfViewerComponent implements AfterViewInit {
     this.cropper = new Cropper(this.imageElement.nativeElement, {
       aspectRatio: 0,
       zoomable: false,
+      initialAspectRatio: 6,
+
       crop: (event) => {
         const canvas = this.cropper.getCroppedCanvas();
         canvas.style.width = event.detail.width;
@@ -85,7 +97,7 @@ export class PdfViewerComponent implements AfterViewInit {
     element.style.left = SX;
     element.style.top = SY;
     element.style.borderColor = '#ffffff';
-    element.style.backgroundColor = '#777'
+    element.style.backgroundColor = '#777';
     element.style.position = 'absolute';
     element.style.zIndex = '1000';
 
@@ -114,12 +126,66 @@ export class PdfViewerComponent implements AfterViewInit {
   }
 
   anonymize3() {
-    this.URL = 'http://0.0.0.0:8080/crop_pdf3/' + this.path + '/' + this.page + '/1';
+    this.URL = 'http://0.0.0.0:8080/preview/' + this.path + '/' + this.page + '/1';
     console.log(this.URL);
-    this.http.post(this.URL, {Z: this.Zone, X: this.XT, Y: this.YT, W: this.WT, H: this.HT}).subscribe(status => {
+    this.http.post(this.URL, {Z: this.Zone, X: this.XT, Y: this.YT, W: this.WT, H: this.HT, C: this.color1}).subscribe(status => {
       console.log('we are back ');
       console.log(JSON.stringify(status));
       this.succ = true;
+      this.openDialog();
     });
+    }
+
+
+  openDialog() {
+        const dialogConfig = new MatDialogConfig();
+
+        dialogConfig.disableClose = true;
+        dialogConfig.autoFocus = true;
+        dialogConfig.width = '70%';
+        dialogConfig.height = '80%';
+        dialogConfig.closeOnNavigation = true;
+        dialogConfig.data = {
+          path : this.path,
+          page : this.page
+        };
+
+        this.dialog.open(PdfDialogComponent, dialogConfig);
   }
+
+  generate(toggle) {
+    if (!toggle.checked) {
+      this.anonymize3();
+    } else {
+      this.anonymize2();
+    }
+  }
+
+  review(toggle) {
+    if (!toggle.checked) {
+      console.log(this.path);
+      console.log(this.page);
+      console.log(this.name);
+      // tslint:disable-next-line:max-line-length
+      // const hsva = this.cpService.stringToHsva(this.color1, true);
+      //
+      // if (hsva) {
+      //   const rgbColor = this.cpService.outputFormat(hsva, 'rgba', null);
+      //   // tslint:disable-next-line:max-line-length
+      //   console.log(rgbColor);
+      // tslint:disable-next-line:max-line-length
+      this.route.navigate(['/review'], {state: {data: { path : this.path, page : this.page , name : this.name, Z: this.Zone, X: this.XT, Y: this.YT, W: this.WT, H: this.HT, C: this.color1}}});
+      // }
+    } else {
+      this.anonymize2();
+    }
+  }
+
+
+  public onEventLog(event: string, data: any): void {
+    console.log(this.color1);
+  }
+
+
+
 }
