@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Inject } from '@angular/core';
+import {environment} from '../../environments/environment.prod';
 
 @Component({
   selector: 'app-pdf-dialog',
@@ -14,7 +15,7 @@ export class PdfDialogComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.src = 'http://0.0.0.0:8080/anonym/' + this.data.path;
+    this.src = environment.baseUrl + '/anonym/' + this.data.path;
     this.page = this.data.page ;
   }
 

@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {ToastrService} from 'ngx-toastr';
 import {MatDialog} from '@angular/material';
+import {environment} from '../../environments/environment.prod';
 
 @Component({
   selector: 'app-review',
@@ -31,12 +32,12 @@ export class ReviewComponent implements OnInit {
     this.WT = this.route.getCurrentNavigation().extras.state.data.W;
     this.Zone = this.route.getCurrentNavigation().extras.state.data.Z;
     this.color = this.route.getCurrentNavigation().extras.state.data.C;
-    const URL = 'http://0.0.0.0:8080/crop_pdf3/' + this.path + '/' + this.page + '/1';
+    const URL = environment.baseUrl + '/crop_pdf3/' + this.path + '/' + this.page + '/1';
     this.http.post(URL, {Z: this.Zone, X: this.XT, Y: this.YT, W: this.WT, H: this.HT, C: this.color}).subscribe(status => {
       console.log('we are back ');
       console.log(JSON.stringify(status));
       this.succ = true;
-      const url = 'http://0.0.0.0:8080/anonym/' + this.path;
+      const url = environment.baseUrl + '/anonym/' + this.path;
       // window.open(url, '_blank');
       window.location.href = url;
     });

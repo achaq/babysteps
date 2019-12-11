@@ -2,12 +2,14 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {FileUploader} from 'ng2-file-upload';
 // import {ToastrService} from 'ngx-toastr';
+import {environment} from '../../environments/environment.prod';
+
 import {Router} from '@angular/router';
 import {MatTableDataSource} from '@angular/material';
 import {ToastrService} from 'ngx-toastr';
 
 
-const URL = 'http://0.0.0.0:8080/api/upload';
+const URL = environment.baseUrl+'/api/upload';
 
 @Component({
   selector: 'app-pdf-uploader',

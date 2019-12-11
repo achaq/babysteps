@@ -32,6 +32,7 @@ import { PdfDialogComponent } from './pdf-dialog/pdf-dialog.component';
 import { ReviewComponent } from './review/review.component';
 import {ColorSketchModule} from 'ngx-color/sketch';
 import {ColorPickerModule} from 'ngx-color-picker';
+import { HelpComponent } from './help/help.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import {ColorPickerModule} from 'ngx-color-picker';
     PrincipaleComponent,
     PdfDialogComponent,
     ReviewComponent,
+    HelpComponent,
   ],
   imports: [
     NgbModule,

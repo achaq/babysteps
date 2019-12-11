@@ -6,6 +6,8 @@ import {ToastrService} from 'ngx-toastr';
 import {MatDialog, MatDialogConfig, MatSlideToggle} from '@angular/material';
 import {PdfDialogComponent} from '../pdf-dialog/pdf-dialog.component';
 import { ColorPickerService, Cmyk } from 'ngx-color-picker';
+import {environment} from '../../environments/environment.prod';
+
 @Component({
   selector: 'app-pdf-viewer',
   templateUrl: './pdf-viewer.component.html',
@@ -110,7 +112,7 @@ export class PdfViewerComponent implements AfterViewInit {
     console.log(this.Y);
     console.log(this.W);
     console.log(this.H);
-    this.URL = 'http://0.0.0.0:8080/crop_pdf/' + this.path + '/' + this.page + '/1';
+    this.URL = environment.baseUrl+'/crop_pdf/' + this.path + '/' + this.page + '/1';
     console.log(this.URL);
     this.http.post(this.URL, {Z: this.Zone, X: this.XT, Y: this.YT, W: this.WT, H: this.HT}).subscribe(data => {
       console.log(data);
@@ -118,7 +120,7 @@ export class PdfViewerComponent implements AfterViewInit {
   }
   anonymize2() {
 
-    this.URL = 'http://0.0.0.0:8080/crop_pdf2/' + this.path + '/' + this.page + '/1';
+    this.URL = environment.baseUrl+'/crop_pdf2/' + this.path + '/' + this.page + '/1';
     console.log(this.URL);
     this.http.post(this.URL, {X: this.X, Y: this.Y, W: this.W, H: this.H}).subscribe(data => {
       console.log(data);
@@ -126,7 +128,7 @@ export class PdfViewerComponent implements AfterViewInit {
   }
 
   anonymize3() {
-    this.URL = 'http://0.0.0.0:8080/preview/' + this.path + '/' + this.page + '/1';
+    this.URL = environment.baseUrl+'/preview/' + this.path + '/' + this.page + '/1';
     console.log(this.URL);
     this.http.post(this.URL, {Z: this.Zone, X: this.XT, Y: this.YT, W: this.WT, H: this.HT, C: this.color1}).subscribe(status => {
       console.log('we are back ');

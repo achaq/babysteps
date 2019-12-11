@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
+import {environment} from '../../environments/environment.prod';
 
 @Component({
   selector: 'app-page',
@@ -43,7 +44,7 @@ export class PageComponent implements OnInit {
     //       }
     // });
     this.page = getpage.page;
-    const URL = 'http://0.0.0.0:8080/page/'
+    const URL = environment.baseUrl + '/page/'
     console.log(URL);
     this.http.post(URL, {page : this.page, path : this.path}).subscribe(status => {
       console.log('we are back ');

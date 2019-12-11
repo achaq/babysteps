@@ -3,9 +3,13 @@
     <img src="../assets/contract.svg" (click)="gohome()" style="width: 50px">
     <button mat-icon-button (click)="gohome()" style="color: #4b87e0 ;   font-family: Lato;
  "> PDF Anonymization</button>
+
+
     <span class="spacer"></span>
     <div class="loginSection">
-      <i class="fas fa-question-circle"></i>
+      <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="openDialog()">
+        <img src="../assets/img/information.svg" style="width: 38px ; ">
+      </button>
       <button mat-button>
         Login
       </button>
@@ -44,9 +48,10 @@
 
         ​
       </div>
-      <!-- End Content Area -->
+
     </div>
   </div>
+
 
 
 
