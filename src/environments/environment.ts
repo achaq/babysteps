@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://0.0.0.0:8080'
+  baseUrl: 'http://172.16.4.52:8080'
 };
 
 /*
