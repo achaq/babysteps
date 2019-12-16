@@ -8,7 +8,7 @@ html, body { height: 100%; }
   text-decoration: underline;
 }
 .my-drop-zone{
-  border: dotted 3px #4b87e0;
+  border: dotted 1px #959fa5;
   padding: 30px;
 }
 .text-center{
@@ -90,8 +90,8 @@ html, body { height: 100%; }
   background-color: #F44336; ;
 }
 .nl-rnd-border {
-  border: groove;
-  border-radius: 30px;
+  border: dashed 1px #959fa5;
+
   padding: 10px;
 }
 .nl-btn-pad {
@@ -114,4 +114,7 @@ html, body { height: 100%; }
 
 .btn btn-primary{
 
+}
+.mat-progress-bar{
+  height: 12px;
 }

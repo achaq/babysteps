@@ -83,7 +83,9 @@
         ​
         <div>
           <div class="nl-rnd-border">Progress:
-            <mat-progress-bar color="warn" mode="determinate" [value]="uploader.progress"></mat-progress-bar>
+            <br>
+            <br>
+            <mat-progress-bar  color="#5632c0" mode="determinate" [value]="uploader.progress"></mat-progress-bar>
           </div>
           <div class="nl-btn-pad">
             <button mat-flat-button class="nl-upAll-col" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">

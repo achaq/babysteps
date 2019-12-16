@@ -37,7 +37,7 @@ mat-toolbar:after {
   top: 0;
   right: 0;
   z-index: 2;
-  background: #333;
+  background: #d26029;
   transform-origin: bottom left;
   -ms-transform: skew(-30deg, 0deg);
   -webkit-transform: skew(-30deg, 0deg);
@@ -62,6 +62,7 @@ mat-toolbar {
   font-size: 20px;
   position: relative;
   color: #FFF;
+  background-color: #1d2150;
   z-index: 1;
 }
 

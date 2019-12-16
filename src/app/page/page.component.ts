@@ -43,7 +43,10 @@ export class PageComponent implements OnInit {
     //         console.log(events);
     //       }
     // });
-    this.page = getpage.page;
+    if (getpage.page === '') {
+      this.page = 1;
+    } else {
+    this.page = getpage.page;}
     const URL = environment.baseUrl + '/page/'
     console.log(URL);
     this.http.post(URL, {page : this.page, path : this.path}).subscribe(status => {

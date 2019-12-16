@@ -9,7 +9,7 @@ import {MatTableDataSource} from '@angular/material';
 import {ToastrService} from 'ngx-toastr';
 
 
-const URL = environment.baseUrl+'/api/upload';
+const URL = environment.baseUrl + '/api/upload';
 
 @Component({
   selector: 'app-pdf-uploader',

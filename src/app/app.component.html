@@ -1,7 +1,7 @@
 <section style="padding: unset">
   <mat-toolbar class="mat-elevation-z5" >
-    <img src="../assets/contract.svg" (click)="gohome()" style="width: 50px">
-    <button mat-icon-button (click)="gohome()" style="color: #4b87e0 ;   font-family: Lato;
+    <img src="../assets/img/logo.jpg" (click)="gohome()" style="width: 65px; margin-right: 5px">
+    <button mat-icon-button (click)="gohome()" style="color: #ffffff ;   font-family: Lato;
  "> PDF Anonymization</button>
 
 
@@ -29,27 +29,13 @@
 
 
   <div class="container">
-    <div class="board">
-      <!-- Navigation Area (Circular Tabs) -->
-      <!-- End Navigation Area (Circular Tabs) -->
 
-      <!-- Content Area -->
-      <div class="tab-content">
-        <!-- Routed view  -->
-        <div class="nl-Dialog--header">
-        </div>
 
-      <mat-dialog-content  style="min-height: 500px" fxLayout="column" fxLayoutGap="10px" >
-          <div>
+
         <router-outlet></router-outlet>
 
-          </div>
-        </mat-dialog-content>
-
         ​
-      </div>
 
-    </div>
   </div>
 
 

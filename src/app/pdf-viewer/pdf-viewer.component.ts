@@ -21,7 +21,7 @@ export class PdfViewerComponent implements AfterViewInit {
 
   public selectedColor = 'color1';
 
-  public color1 = '#006777';
+  public color1 = '#ffffff';
   @Input()
   checked: boolean;
   @ViewChild('image', {static: false})
@@ -39,6 +39,7 @@ export class PdfViewerComponent implements AfterViewInit {
   private Zone: number;
   private succ = false;
   state: any;
+  private added = false;
 
 
   // tslint:disable-next-line:max-line-length
@@ -87,7 +88,7 @@ export class PdfViewerComponent implements AfterViewInit {
     this.YT.push(this.Y);
     this.HT.push(this.H);
     this.WT.push(this.W);
-
+    this.added = true;
 
     const element = document.createElement('div');
     const SX = (this.X * 0.68).toString() + 'px';
@@ -102,7 +103,6 @@ export class PdfViewerComponent implements AfterViewInit {
     element.style.backgroundColor = '#777';
     element.style.position = 'absolute';
     element.style.zIndex = '1000';
-
     document.body.getElementsByClassName('cropper-drag-box cropper-crop cropper-modal')[0].appendChild(element);
 
   }
@@ -112,7 +112,7 @@ export class PdfViewerComponent implements AfterViewInit {
     console.log(this.Y);
     console.log(this.W);
     console.log(this.H);
-    this.URL = environment.baseUrl+'/crop_pdf/' + this.path + '/' + this.page + '/1';
+    this.URL = environment.baseUrl + '/crop_pdf/' + this.path + '/' + this.page + '/1';
     console.log(this.URL);
     this.http.post(this.URL, {Z: this.Zone, X: this.XT, Y: this.YT, W: this.WT, H: this.HT}).subscribe(data => {
       console.log(data);
@@ -120,15 +120,19 @@ export class PdfViewerComponent implements AfterViewInit {
   }
   anonymize2() {
 
-    this.URL = environment.baseUrl+'/crop_pdf2/' + this.path + '/' + this.page + '/1';
+    this.URL = environment.baseUrl + '/preview2/' + this.path + '/' + this.page + '/1';
     console.log(this.URL);
-    this.http.post(this.URL, {X: this.X, Y: this.Y, W: this.W, H: this.H}).subscribe(data => {
-      console.log(data);
+    console.log(this.Zone);
+    this.http.post(this.URL, {Z: this.Zone, X: this.XT, Y: this.YT, W: this.WT, H: this.HT}).subscribe(status => {
+      console.log('we are back ');
+      console.log(JSON.stringify(status));
+      this.succ = true;
+      this.openDialog();
     });
   }
 
   anonymize3() {
-    this.URL = environment.baseUrl+'/preview/' + this.path + '/' + this.page + '/1';
+    this.URL = environment.baseUrl + '/preview/' + this.path + '/' + this.page + '/1';
     console.log(this.URL);
     this.http.post(this.URL, {Z: this.Zone, X: this.XT, Y: this.YT, W: this.WT, H: this.HT, C: this.color1}).subscribe(status => {
       console.log('we are back ');
@@ -164,6 +168,7 @@ export class PdfViewerComponent implements AfterViewInit {
   }
 
   review(toggle) {
+    let method;
     if (!toggle.checked) {
       console.log(this.path);
       console.log(this.page);
@@ -176,11 +181,13 @@ export class PdfViewerComponent implements AfterViewInit {
       //   // tslint:disable-next-line:max-line-length
       //   console.log(rgbColor);
       // tslint:disable-next-line:max-line-length
-      this.route.navigate(['/review'], {state: {data: { path : this.path, page : this.page , name : this.name, Z: this.Zone, X: this.XT, Y: this.YT, W: this.WT, H: this.HT, C: this.color1}}});
       // }
+      method = 0;
     } else {
-      this.anonymize2();
+      method = 1;
     }
+    // tslint:disable-next-line:max-line-length
+    this.route.navigate(['/review'], {state: {data: { path : this.path, page : this.page , name : this.name, Z: this.Zone, X: this.XT, Y: this.YT, W: this.WT, H: this.HT, C: this.color1, Method: method}}});
   }
 
 

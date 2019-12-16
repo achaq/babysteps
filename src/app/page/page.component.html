@@ -37,7 +37,7 @@
 <form [formGroup]="data" (ngSubmit)="onSubmit(data.value)">
   <h6 style="padding-bottom: 1em"> If your file contains several pages, select the one where you want to select the areas that should be anonymized:</h6>
   <mat-form-field>
-    <input matInput placeholder="Page Number" formControlName="page" id="pages" type="number" class="example-right-align">
+    <input type="number" matInput min="1" max="10" required placeholder="Page Number" formControlName="page" id="pages"  class="example-right-align">
   </mat-form-field>
   <button class="button" type="submit"       mat-stroked-button color="primary" >Select</button>
   <h6><small>The files are only used to perform the automatic process of anonymisation. The original documents are immediately deleted when the anonymisation process is finished. The anonymized documents are available for download until you close the web page.</small></h6>

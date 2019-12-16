@@ -17,9 +17,9 @@
 <!--      <button mat-raised-button id="anonymize2" (click)="anonymize2()"></button>-->
       Anonimize with mark-page <mat-slide-toggle  #toggle></mat-slide-toggle>Anonymize with OCR
 <!--      <button mat-raised-button  id="home" (click)="goback()">select another file</button>-->
-      <button mat-raised-button  id="launch" [disabled]="toggle.checked"><a   (click)="generate(toggle)" >Preview</a></button>
+      <button mat-raised-button [disabled]="!added" id="launch" ><a   (click)="generate(toggle)" >Preview</a></button>
 <!--      <button mat-raised-button  id="download" ><a target="_blank"  href="http://0.0.0.0:8080/anonym/{{path}}">finalize anonymisation</a></button>-->
-      <button mat-raised-button  id="review" [disabled]="toggle.checked"><a (click)="review(toggle)" >finalize anonymisation</a></button>
+      <button mat-raised-button [disabled]="!added" id="review" ><a (click)="review(toggle)" >finalize anonymisation</a></button>
 
 <!--<a class="btn btn-primary" data-target="#modalIMG" data-toggle="modal" >View Image</a>-->
 <!--      <div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" id="modalIMG" role="dialog" tabindex="-1">-->
