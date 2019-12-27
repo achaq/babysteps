@@ -14,7 +14,7 @@
 
 body {
   margin: 0;
-  font-family: sans-serif;
+  font-family: Roboto, Helvetica Neue, sans-serif ;
   background-color: rgba(205, 217, 237, 0.5215686274509804);
 }
 
@@ -33,7 +33,7 @@ body {
   line-height: normal;
   padding: 0 0 20px;
   font-size: 18px;
-  font-family: sans-serif;
+  font-family: Roboto, Helvetica Neue, sans-serif ;
 }
 
 .rectangle {
@@ -77,6 +77,12 @@ body {
 .spacer {
   flex: 1 1 auto;
 }
+.spacer2 {
+padding: 0px;
+}
+.spacer3 {
+  padding: 10px;
+}
 mat-toolbar:after {
   color: white;
   box-shadow: 5px 10px #888888;
@@ -97,5 +103,28 @@ mat-toolbar:after {
 }
 .mat-dialog-container{
   display: contents;
-  background-color: #959fa5;
+  background-color: #afbbc7;
+}
+
+.with-margin-top {
+  margin-top: 64px !important;
+}
+
+*:focus {
+  outline: 0 !important;
+}
+
+/*@font-face {*/
+/*  font-family: Roboto, Helvetica Neue, sans-serif;*/
+/*  src: url('assets/fonts/Roboto, Helvetica Neue, sans-serif_LT_Book.ttf') format("opentype");*/
+/*}*/
+
+* {
+  font-family: Roboto, Helvetica Neue, sans-serif ;
+}
+
+
+.buttonStyle {
+  color: white;
+  background-color: #1d2150; ;
 }

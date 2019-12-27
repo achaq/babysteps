@@ -1,18 +1,33 @@
 <section style="padding: unset">
   <mat-toolbar class="mat-elevation-z5" >
     <img src="../assets/img/logo.jpg" (click)="gohome()" style="width: 65px; margin-right: 5px">
-    <button mat-icon-button (click)="gohome()" style="color: #ffffff ;   font-family: Lato;
- "> PDF Anonymization</button>
+    <button mat-icon-button (click)="gohome()" style="color: #ffffff ; font-size: 18px;    font-family:Roboto, Helvetica Neue, sans-serif;
+ ">    <strong style="font-weight: 700">PDF</strong> Anonymization
+    </button>
 
 
     <span class="spacer"></span>
-    <div class="loginSection">
-      <button mat-icon-button aria-label="Example icon-button with a heart icon" (click)="openDialog()">
-        <img src="../assets/img/information.svg" style="width: 38px ; ">
+    <div style="z-index: 3">
+      <button  mat-icon-button matTooltip="Help" (click)="openDialog()">
+        <img id="logoprinc" src="../assets/img/information.svg" style="width: 38px ; ">
+
+<!--        <i class="fas fa-question-circle"></i>-->
       </button>
-      <button mat-button>
-        Login
+      <span class="spacer3"></span>
+      <button  mat-icon-button matTooltip="translate" hidden [matMenuTriggerFor]="menu" >
+        <img id="logolanguage" src="../assets/img/translate.svg" style="width: 38px ; ">
+        <!--        <i class="fas fa-question-circle"></i>-->
       </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>FR</button>
+        <button mat-menu-item>ENG</button>
+      </mat-menu>
+      <span id="spacer2" class="spacer2"></span>
+
+
+<!--      <button mat-button>-->
+<!--        <h5 style="font-size: 20px; font-family: fantasy">Login</h5>-->
+<!--      </button>-->
     </div>
   </mat-toolbar>
 
@@ -28,7 +43,7 @@
 
 
 
-  <div class="container">
+  <div class="container" id="main" style="  font-family: Roboto, Helvetica Neue, sans-serif">
 
 
 

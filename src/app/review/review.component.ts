@@ -24,7 +24,7 @@ export class ReviewComponent implements OnInit {
   private readonly method;
   private URL;
   private way;
-  private end = false;
+  public end = false;
   constructor(private route: Router, private http: HttpClient) {
     console.log('here construct');
     this.page = this.route.getCurrentNavigation().extras.state.data.page;
@@ -47,12 +47,14 @@ export class ReviewComponent implements OnInit {
     this.http.post(URL, {Z: this.Zone, X: this.XT, Y: this.YT, W: this.WT, H: this.HT, C: this.color}).subscribe(status => {
       console.log('we are back ');
       console.log(JSON.stringify(status['success']));
-      if (JSON.stringify(status['success'])) {
+      if (JSON.stringify(status['success']) === 'true') {
         const url = environment.baseUrl + '/anonym/' + this.path;
-        // window.open(url, '_blank');
+        console.log('i guess there is success');
         window.location.href = url;
+        this.succ = true;
       } else {
-                this.end = true;
+        this.end = true;
+        console.log('i guess there is NO success');
       }
     });
   }

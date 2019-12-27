@@ -29,11 +29,10 @@ export class AppComponent implements OnInit {
   openDialog() {
     const dialogConfig = new MatDialogConfig();
 
-    dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = '70%';
     dialogConfig.height = '80%';
-    dialogConfig.closeOnNavigation = true;
+    // dialogConfig.closeOnNavigation = true;
     this.dialog.open(HelpComponent, dialogConfig);
   }
 }

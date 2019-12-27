@@ -10,11 +10,11 @@ import {environment} from '../../environments/environment.prod';
   styleUrls: ['./page.component.css']
 })
 export class PageComponent implements OnInit {
-  private data: FormGroup;
+  public data: FormGroup;
   private path: any;
   private page: number;
   name: any;
-  private succ: boolean;
+  public succ: boolean;
 
   constructor(private router: Router, private formBuilder: FormBuilder, private http: HttpClient) {
 
@@ -52,7 +52,7 @@ export class PageComponent implements OnInit {
     this.http.post(URL, {page : this.page, path : this.path}).subscribe(status => {
       console.log('we are back ');
       console.log(JSON.stringify(status));
-      this.succ = true;
+      this.router.navigate(['/pdf'], {state: {data: { path : this.path, page : this.page , name : this.name}}});
     });
   }
 
@@ -61,7 +61,6 @@ export class PageComponent implements OnInit {
   }
 
   next() {
-        this.router.navigate(['/pdf'], {state: {data: { path : this.path, page : this.page , name : this.name}}});
 
   }
 }

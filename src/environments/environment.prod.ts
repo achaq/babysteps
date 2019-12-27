@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: 'http://pdf-node-backend:8080'
+  baseUrl: 'http://172.16.4.124:8080'
 };

@@ -1,17 +1,21 @@
 .example-card {
-  width: 70%;
-  position: absolute;
+  /*position: absolute;*/
   /*margin-right: 20%;*/
 }
 
 .example-header-image {
-  background-image: url('https://jcsatanas.fr/wp-content/uploads/2016/09/google-incognito-6.jpg');
+  background-image: url('~src/assets/img/logo.jpg');
   background-size: cover;
 }
-p {
-  font-family: Lato;
-}
 
+
+p {
+  font-family: Roboto, Helvetica Neue, sans-serif ;
+}
+.mat-card{
+background-color: transparent;
+  box-shadow: none;
+}
 .all{
   display: inline-block;
   text-align: center;
@@ -22,16 +26,15 @@ p {
   float: left;
 }
 
-#addzone{
-height: 80%;
-  /*margin-right: 5%;*/
-  margin-left: 2%;
-  background-color: cornflowerblue;
-  color: currentColor;
-}
+/*#addzone{*/
+/*height: 80%;*/
+/*  !*margin-right: 5%;*!*/
+/*  margin-left: 2%;*/
+/*  background-color: cornflowerblue;*/
+/*  color: currentColor;*/
+/*}*/
 
 .img-preview {
-  width: 18%;
   height: 100px;
   float: left;
   margin-left: 2%;
@@ -49,19 +52,19 @@ img {
   max-width: 100%;
 }
 
-#anonymize{
-  /*width: 15%;*/
-color: forestgreen;
-}
-#anonymize2{
-  /*width: 15%;*/
-  color: forestgreen;
-}
-#select{
-color: #335599;
-}
+/*#anonymize{*/
+/*  !*width: 15%;*!*/
+/*color: forestgreen;*/
+/*}*/
+/*#anonymize2{*/
+/*  !*width: 15%;*!*/
+/*  color: forestgreen;*/
+/*}*/
+/*#select{*/
+/*color: #335599;*/
+/*}*/
 
-h4 { font-family: 'Open Sans'; margin: 0;}
+h4 {   font-family: Roboto, Helvetica Neue, sans-serif ; margin: 0;}
 
 .modal,.modal-open {
   padding-right: 0!important
@@ -95,3 +98,121 @@ h4 { font-family: 'Open Sans'; margin: 0;}
 mat-dialog-container{
   background-color: #959fa5;
 }
+.flex-container2 {
+  display: flex;
+  flex-wrap: wrap;
+
+
+}
+.flex-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidenav {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+
+.sidenav {
+  height: 100%;
+  width: 0px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #fbf4ff;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #6d06f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  left: 0px;
+  font-size: 36px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.sidenav.with-margin-top{
+  border-right: 2px solid rgb(210, 95, 41);
+}
+
+
+#nav-icon2.open span:nth-child(1) {
+  left: 5px;
+  top: 7px;
+}
+
+#nav-icon2.open span:nth-child(2) {
+  left: calc(50% - 5px);
+  top: 7px;
+}
+
+#nav-icon2.open span:nth-child(3) {
+  left: -50%;
+  opacity: 0;
+}
+
+#nav-icon2.open span:nth-child(4) {
+  left: 100%;
+  opacity: 0;
+}
+
+#nav-icon2.open span:nth-child(5) {
+  left: 5px;
+  top: 29px;
+}
+
+#nav-icon2.open span:nth-child(6) {
+  left: calc(50% - 5px);
+  top: 29px;
+}
+
+
+.wrapper1{
+  position: fixed;
+  z-index: 6;
+  top: 13px;
+  width: 40px;
+  right: 6px;
+  padding: unset;
+  transition: 0.5s;
+  background-color: transparent;
+
+}
+
+
+
+/*.logo_angrenage{*/
+/*  animation: rotation 1s  linear;*/
+/*}*/
+
+/*@keyframes rotation {*/
+/*  from {*/
+/*    transform: rotate(0deg);*/
+/*  }*/
+/*  to {*/
+/*    transform: rotate(180deg);*/
+/*  }*/
+/*}*/

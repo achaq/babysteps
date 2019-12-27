@@ -13,7 +13,7 @@ html {
 
 body {
   font-size: 1.6rem;
-  font-family: "Source Sans Pro", sans-serif;
+  font-family: Roboto, Helvetica Neue, sans-serif ;
   color: #2c3f4c;
   background-color: #ffffff;
 }
@@ -29,7 +29,6 @@ section {
   padding: 2em 0;
 }
 section h2 {
-  width: 90%;
   margin: 0 auto 2em;
   color: #2c3f4c;
   font-size: 2rem;
@@ -146,7 +145,7 @@ Basic Style
     margin: 0 1em;
   }
   .cd-breadcrumb li > *, .cd-multi-steps li > * {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
 }
 
@@ -307,7 +306,6 @@ Multi steps indicator
     background-color: #5632c0;
   }
   .cd-multi-steps li > *, .cd-multi-steps li.current > * {
-    position: relative;
     color: #2c3f4c;
   }
 
@@ -438,6 +436,8 @@ Add a counter to the multi-steps indicator
   .cd-multi-steps.text-bottom.count li:not(.current) em::before {
     /* steps not visited yet - counter color */
     color: #2c3f4c;
+    background-color: #f9cca6;
+
   }
 
   .cd-multi-steps.text-top.count li::after {
@@ -457,3 +457,7 @@ Add a counter to the multi-steps indicator
   }
 }
 
+.cd-multi-steps li:not(.visited)::after {
+  margin-top: 2px !important;
+  border-top: 1px dashed #000 !important;
+}

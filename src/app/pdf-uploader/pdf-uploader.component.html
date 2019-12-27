@@ -1,38 +1,45 @@
 <!--<app-navbar> </app-navbar>-->
-
-<section>
-    <h2> 1- Upload the file(s) </h2>
-  <nav>
-    <ol class="cd-multi-steps text-bottom count">
-      <li class="current"><a href="#0">Upload</a></li>
-      <li class="" ><em href="#0">Page</em></li>
-      <li class=""><em>Anonymization</em></li>
-      <li><em>Review</em></li>
-    </ol>
+<div class="flex-container with-margin-top">
+  <div _ngcontent-lye-c6="" style=" display: flex;
+  flex-direction: row;
+flex-wrap: wrap">
+    <div _ngcontent-lye-c6="">
+      <h2 _ngcontent-lye-c6="" style="margin-top: 15%; color: #d25f29"> 1- Upload the file(s) </h2>
+    </div>
+    <div _ngcontent-lye-c6="" style="/* flex-grow: 8 */margin-left: auto;">
+      <nav _ngcontent-lye-c6="" style="width: inherit;min-width: 500px;">
+    <ol _ngcontent-lye-c6="" class="cd-multi-steps text-bottom count">
+      <li _ngcontent-lye-c6="" class="current"><a _ngcontent-lye-c6="" href="#0">Upload file(s)</a></li>
+      <li _ngcontent-lye-c6="" class=""><em _ngcontent-lye-c6="" >Select page</em></li>
+      <li _ngcontent-lye-c6="" class=""><em _ngcontent-lye-c6="">Customize anonymization</em></li>
+      <li _ngcontent-lye-c6=""><em _ngcontent-lye-c6="">Download file</em></li>
+  </ol>
   </nav>
-</section>
+  </div>
+  </div>
+  <div _ngcontent-boj-c4="" class="col-md-12" style="border-bottom:3px  solid #d26029; margin-bottom: 10px "></div>
 
+<div>
 <mat-card-header>
   <mat-card-title><b>Start by Uploading your File(s)</b></mat-card-title>
-  <div>
-    <!--          <button   class="btn btn-primary"  [disabled]="1" type="button" >Back</button>-->
-    <button   class="btn btn-primary"  [disabled]="!done" type="button" (click)="next()" style="border: #335599; font-size: 2rem; width: 200px; margin-left: 80%; font-family: Arial"  >Next</button>
-  </div>
+
 </mat-card-header>
 <mat-card>
 
       <mat-card-content>
         <div fxLayout="row" fxLayoutAlign="start center">
           <div fxFlex="30">
-            <input id="uploadDocument" type="file" name="filename" ng2FileSelect (onFileSelected)="onFileSelectedOrDropped($event)" [uploader]="uploader" multiple  />
+
+            <input #uploadDocument hidden type="file" name="filename" value="choooose" ng2FileSelect (onFileSelected)="onFileSelectedOrDropped($event)" [uploader]="uploader" multiple  />
 
           </div>
-          <div fxFlex="70"  ng2FileDrop [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
+          <div fxFlex="70"  ng2FileDrop (click)="uploadDocument.click()" [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
                (fileOver)="fileOverBase($event)" (onFileDrop)="onFileSelectedOrDropped($event)"
                class="well my-drop-zone text-center"
                [uploader]="uploader">
-            Drag & Drop
-          </div>
+            <button  disableRipple type="button"  style="background-color: transparent"  mat-flat-button >
+              <mat-icon style="margin-right: 5px" class="white-icon s-24">attach_file</mat-icon>Attach file / Drag & Drop here
+            </button>          </div>
         </div>
         <p>Nombre de fichiers : {{uploader?.queue?.length}}</p>
         ​
@@ -88,18 +95,25 @@
             <mat-progress-bar  color="#5632c0" mode="determinate" [value]="uploader.progress"></mat-progress-bar>
           </div>
           <div class="nl-btn-pad">
-            <button mat-flat-button class="nl-upAll-col" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
-              <mat-icon class="white-icon s-24">cloud_upload</mat-icon>Upload all
+            <button mat-flat-button   matTooltip="upload your file first" class="nl-upAll-col" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+              <mat-icon style="margin-right: 5px" class="white-icon s-24">cloud_upload</mat-icon>Upload all
             </button>
             <!--<button mat-flat-button class="nl-clAll-col" (click)="uploader.cancelAll()" [disabled]="!uploader.isUploading">
                 <mat-icon class="white-icon s-24">clear</mat-icon>Cancel all
             </button>-->
-            <button mat-flat-button class="nl-rmAll-col" (click)="clearFileList()" [disabled]="!uploader.queue.length">
+            <button   matTooltip="Remove all your files" mat-flat-button class="nl-rmAll-col" (click)="clearFileList()" [disabled]="!uploader.queue.length">
               <mat-icon class="white-icon s-24">remove</mat-icon>Remove all
             </button>
           </div>
-          ​
+
         </div>
       </mat-card-content>
 </mat-card>
+</div>
+  <div style="  justify-content: center;">
+    <!--          <button   class="btn btn-primary"  [disabled]="1" type="button" >Back</button>-->
+    <button class="buttonStyle" matTooltip="next to select the page"  mat-raised-button [disabled]="!done"  (click)="next()" style="border: #335599;    position: absolute;
+    right: 16%; font-size: 2rem;  width: 200px; font-family: Roboto, Helvetica Neue, sans-serif"  >Next</button>
+  </div>
 
+</div>

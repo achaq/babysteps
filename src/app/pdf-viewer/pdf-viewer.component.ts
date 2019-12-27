@@ -7,6 +7,7 @@ import {MatDialog, MatDialogConfig, MatSlideToggle} from '@angular/material';
 import {PdfDialogComponent} from '../pdf-dialog/pdf-dialog.component';
 import { ColorPickerService, Cmyk } from 'ngx-color-picker';
 import {environment} from '../../environments/environment.prod';
+import {MatBottomSheet, MatBottomSheetRef} from '@angular/material/bottom-sheet';
 
 @Component({
   selector: 'app-pdf-viewer',
@@ -18,12 +19,12 @@ export class PdfViewerComponent implements AfterViewInit {
   path: string;
   name: string;
   URL: any;
-
+  src: string;
   public selectedColor = 'color1';
 
   public color1 = '#ffffff';
   @Input()
-  checked: boolean;
+  checked = true;
   @ViewChild('image', {static: false})
   public imageElement: ElementRef;
   public imageDestination: string;
@@ -39,7 +40,12 @@ export class PdfViewerComponent implements AfterViewInit {
   private Zone: number;
   private succ = false;
   state: any;
-  private added = false;
+  pages = [1 , 2 , 3 , 4 , 5];
+  public added = false;
+  public end = false;
+  checked1 = false;
+  public sidenav = false;
+  private urlNav = 'https://static.thenounproject.com/png/1195185-200.png';
 
 
   // tslint:disable-next-line:max-line-length
@@ -49,7 +55,9 @@ export class PdfViewerComponent implements AfterViewInit {
     this.page = this.route.getCurrentNavigation().extras.state.data.page;
     this.path = this.route.getCurrentNavigation().extras.state.data.path;
     this.name = this.route.getCurrentNavigation().extras.state.data.name;
-    this.Zone = 0;
+    this.Zone = 1;
+    this.src = environment.baseUrl + '/image/' + this.path + '/' + this.page;
+    document.getElementById('spacer2').style.padding = '20px';
 
   }
 
@@ -89,7 +97,6 @@ export class PdfViewerComponent implements AfterViewInit {
     this.HT.push(this.H);
     this.WT.push(this.W);
     this.added = true;
-
     const element = document.createElement('div');
     const SX = (this.X * 0.68).toString() + 'px';
     const SH = (this.H * 0.68).toString() + 'px';
@@ -123,17 +130,30 @@ export class PdfViewerComponent implements AfterViewInit {
     this.URL = environment.baseUrl + '/preview2/' + this.path + '/' + this.page + '/1';
     console.log(this.URL);
     console.log(this.Zone);
+    console.log(this.X);
+    console.log(this.Y);
+    console.log(this.W);
+    console.log(this.H);
     this.http.post(this.URL, {Z: this.Zone, X: this.XT, Y: this.YT, W: this.WT, H: this.HT}).subscribe(status => {
       console.log('we are back ');
-      console.log(JSON.stringify(status));
-      this.succ = true;
-      this.openDialog();
+      console.log(JSON.stringify(status['success']));
+      if (JSON.stringify(status['success']) === 'false') {
+        console.log('there is a problem with ur pdf ');
+        // window.open(url, '_blank');
+      } else {
+        this.end = true;
+        this.openDialog();
+      }
     });
   }
 
   anonymize3() {
     this.URL = environment.baseUrl + '/preview/' + this.path + '/' + this.page + '/1';
     console.log(this.URL);
+    console.log(this.X);
+    console.log(this.Y);
+    console.log(this.W);
+    console.log(this.H);
     this.http.post(this.URL, {Z: this.Zone, X: this.XT, Y: this.YT, W: this.WT, H: this.HT, C: this.color1}).subscribe(status => {
       console.log('we are back ');
       console.log(JSON.stringify(status));
@@ -160,6 +180,10 @@ export class PdfViewerComponent implements AfterViewInit {
   }
 
   generate(toggle) {
+    this.XT.push(this.X);
+    this.YT.push(this.Y);
+    this.HT.push(this.H);
+    this.WT.push(this.W);
     if (!toggle.checked) {
       this.anonymize3();
     } else {
@@ -168,6 +192,10 @@ export class PdfViewerComponent implements AfterViewInit {
   }
 
   review(toggle) {
+    this.XT.push(this.X);
+    this.YT.push(this.Y);
+    this.HT.push(this.H);
+    this.WT.push(this.W);
     let method;
     if (!toggle.checked) {
       console.log(this.path);
@@ -196,5 +224,47 @@ export class PdfViewerComponent implements AfterViewInit {
   }
 
 
+  openNav() {
+    if (this.sidenav === true) {
 
+      document.getElementById('mySidenav').style.width = '40px';
+      document.getElementById('closebtn').style.left = '0px';
+      document.getElementById('main').style.marginLeft = 'auto';
+      this.sidenav = false;
+    } else {
+    document.getElementById('mySidenav').style.width = '250px';
+    document.getElementById('main').style.marginLeft = '250px';
+    document.getElementById('closebtn').style.right = '10px';
+    document.getElementById('closebtn').style.left = 'unset';
+    this.sidenav = true;
+    }
+  }
+  //
+  // openNav(): void {
+  //   this._bottomSheet.open(BottomSheetOverviewExampleSheet);
+  // }
+
+  closeNav() {
+
+  }
+
+  toggleClass() {
+    console.log(this.sidenav);
+    if (this.sidenav === true) {
+
+      document.getElementById('mySidenav').style.width = '0px';
+      document.getElementById('main').style.marginRight = 'auto';
+      this.sidenav = false;
+    } else {
+      document.getElementById('mySidenav').style.width = '250px';
+      document.getElementById('main').style.marginRight = '250px';
+      console.log(document.getElementById('wrapper1').style.left);
+      // document.getElementById('closebtn').style.right = '10px';
+      // document.getElementById('closebtn').style.left = 'unset';
+      this.sidenav = true;
+    }
+  }
 }
+
+
+

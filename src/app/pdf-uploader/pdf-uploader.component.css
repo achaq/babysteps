@@ -16,59 +16,13 @@ html, body { height: 100%; }
 }
 
 .nv-file-over {
-  border: dotted 3px red;
+  border: dotted 1px #959fa5;
 }
 .mat-card{
-
+  background-color: transparent;
+  box-shadow: none;
 }
 
-.cd-breadcrumb li::after, .cd-multi-steps li::after {
-  display: inline-block;
-  content: '\00bb';
-  margin: 0 .6em;
-  color: #959fa5;
-}
-
-.cd-breadcrumb.triangle li::after,
-.cd-breadcrumb.triangle li > *::after {
-  /*
-    li > *::after is the colored triangle after each item
-    li::after is the white separator between two items
-  */
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 100%;
-  content: '';
-  height: 0;
-  width: 0;
-  /* 48px is the height of the <a> element */
-  border: 24px solid transparent;
-  border-right-width: 0;
-  border-left-width: 20px;
-}
-.cd-breadcrumb.triangle li::after {
-  /* this is the white separator between two items */
-  z-index: 1;
-  -webkit-transform: translateX(4px);
-  -moz-transform: translateX(4px);
-  -ms-transform: translateX(4px);
-  -o-transform: translateX(4px);
-  transform: translateX(4px);
-  border-left-color: #ffffff;
-  /* reset style */
-  margin: 0;
-}
-.cd-breadcrumb.triangle li > *::after {
-  /* this is the colored triangle after each element */
-  z-index: 2;
-  border-left-color: inherit;
-}
-.cd-breadcrumb.triangle li:last-of-type::after,
-.cd-breadcrumb.triangle li:last-of-type > *::after {
-  /* hide the triangle after the last step */
-  display: none;
-}
 
 
 .nl-up-col {
@@ -78,19 +32,21 @@ html, body { height: 100%; }
   color: #F9A825;
 }
 .nl-rm-col {
-  color: #F44336;
+  color: #f4b975;
 }
 .nl-upAll-col {
-  background-color: #43A047; ;
+  background-color: #7071a0; ;
+  color: white;
 }
 .nl-clAll-col {
-  background-color: #F9A825; ;
+  background-color: #f9cca6; ;
 }
 .nl-rmAll-col {
-  background-color: #F44336; ;
+  background-color: #f48f4d; ;
+  color: white;
 }
 .nl-rnd-border {
-  border: dashed 1px #959fa5;
+  border: dotted 1px #959fa5;
 
   padding: 10px;
 }
@@ -113,8 +69,23 @@ html, body { height: 100%; }
 }
 
 .btn btn-primary{
+  background-color: #1d2150;
 
 }
 .mat-progress-bar{
   height: 12px;
 }
+.flex-container {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.well.my-drop-zone.text-center:hover{
+  cursor: pointer;
+}
+.well.my-drop-zone.text-center{
+  background-color: #959fa5;
+}
+
+

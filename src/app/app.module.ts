@@ -17,9 +17,9 @@ import {
   MatDialogModule,
   MatFormFieldModule,
   MatIconModule,
-  MatInputModule,
-  MatProgressBarModule, MatProgressSpinnerModule, MatSlideToggleModule, MatStepperModule,
-  MatTableModule, MatToolbarModule
+  MatInputModule, MatMenuModule, MatOptionModule,
+  MatProgressBarModule, MatProgressSpinnerModule, MatSelectModule, MatSlideToggleModule, MatStepperModule,
+  MatTableModule, MatToolbarModule, MatTooltipModule
 } from '@angular/material';
 import {ToastrModule} from 'ngx-toastr';
 import {ImageCropperModule} from 'ngx-image-cropper';
@@ -75,10 +75,14 @@ import { HelpComponent } from './help/help.component';
     MatProgressSpinnerModule,
     ColorSketchModule,
     ColorPickerModule,
+    MatOptionModule,
+    MatSelectModule,
+    MatTooltipModule,
+    MatMenuModule,
     // ToastrModule added
 
   ],
-  entryComponents : [PdfDialogComponent],
+  entryComponents : [PdfDialogComponent, HelpComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

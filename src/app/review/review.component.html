@@ -1,17 +1,27 @@
+<div class="with-margin-top">
+
 <section>
-  <h2> Finalising  </h2>
-
-  <nav>
-    <ol class="cd-multi-steps text-bottom count">
-      <li class="visited"><a href="main">Upload</a></li>
-      <li class="visited" ><em href="#0">Page</em></li>
-      <li class="visited"><em>Anonymization</em></li>
-      <li class ="current"><em>Review</em></li>
-    </ol>
-  </nav>
+  <div _ngcontent-lye-c6="" style=" display: flex;
+  flex-direction: row;
+flex-wrap: wrap">
+    <div _ngcontent-lye-c6="">
+      <h2 _ngcontent-lye-c6="" style="margin-top: 9%; color: #d25f29"> 4-Finalize </h2>
+    </div>
+    <div _ngcontent-lye-c6="" style="/* flex-grow: 8 */margin-left: auto;">
+      <nav _ngcontent-lye-c6="" style="width: inherit;min-width: 500px;">
+        <ol _ngcontent-lye-c6="" class="cd-multi-steps text-bottom count">
+          <li _ngcontent-lye-c6="" class="visited"><a _ngcontent-lye-c6="" href="#0">Upload file(s)</a></li>
+          <li _ngcontent-lye-c6="" class="visited"><a _ngcontent-lye-c6="" href="#0">Select page</a></li>
+          <li _ngcontent-lye-c6="" class="visited"><a _ngcontent-lye-c6="" href="#0">Customize anonymization</a></li>
+          <li _ngcontent-lye-c6="" class="current" ><em _ngcontent-lye-c6="">Download file</em></li>
+        </ol>
+      </nav>
+    </div>
+  </div>
 </section>
+  <div _ngcontent-boj-c4="" class="col-md-12" style="border-bottom:3px  solid #d26029; margin-bottom: 10px "></div>
 
-<div style="text-align:center" *ngIf="!succ">
+<div style="text-align:center" *ngIf="!succ && !end">
   <i _ngcontent-dbo-c13="" class="fa-3x fas fa-circle-notch fa-spin" style="color: #c0680f;"></i>
   <br><br>
   <span style="font-size: 2.6rem;">File loading in progress</span>
@@ -25,8 +35,11 @@
 
 
 
-<div style="text-align:center" *ngIf="succ">
-  <i class="fa-3x fas fa-times-circle" style="color: green"></i>
+<div style="text-align:center" *ngIf="end">
+  <i class="fa-3x fas fa-times-circle" style="color: red"></i>
   <br><br>
   <span style="font-size: 2.6rem;">File could not be anonymized</span>
+</div>
+
+
 </div>

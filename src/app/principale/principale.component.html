@@ -1,6 +1,3 @@
-<section class="mat-typography">
-  <h1>Easy, fast and secure.</h1>
-</section>
 <!--  <ng-template ngbSlide>-->
 <!--    <div class="picsum-img-wrapper">-->
 <!--      <img style="width: inherit; height: inherit" src="../../assets/img/better.png" alt="Random second slide">-->
@@ -16,11 +13,55 @@
 <!--    <div class="carousel-caption">-->
 <!--    </div>-->
 <!--  </ng-template>-->
-    <div class="picsum-img-wrapper">
-      <img style="width: inherit; height: inherit" src="../../assets/img/A-better-way-2.png" alt="Random fourth slide">
-    </div>
-    <div class="carousel-caption">
 
-    </div>
+<div class="flex-container1 with-margin-top">
 
-<button mat-raised-button color="primary"  style="font-size: 3rem" (click)="go_ahead()">START Anonymization </button>
+  <div class="flex-container" style="color: #d26029; font-size: 30px;  ">
+  <div  >
+    <strong style="font-weight: 700">PDF</strong> Anonymization
+    <br>
+    <br>
+<!--    <button mat-raised-button  style="font-size: 2.7rem; background-color : #1d2150; height: 60px; color: white" (click)="go_ahead()">START Anonymization </button>-->
+
+    <button matTooltip="start the magic" (click)="go_ahead()" class="button">
+      START Anonymization
+      <div class="button__horizontal"></div>
+      <div class="button__vertical"></div>
+    </button>
+  </div>
+
+  <div style="padding-top: 60px">
+    <h1>
+      <span
+        class="txt-rotate"
+        data-period="500"
+        data-rotate='[ "Redacting of sensitive information in documents","easy.","secure.", "fast." ]'></span>
+    </h1>
+  </div>
+  </div>
+   <div class="col-md-12" style="border-bottom:3px solid #d26029; margin-top: -35px "></div>
+
+  <div style="text-align: left; color: #666; " >
+    <h5>PDF Anonymimization is designed to anonymize PDF documents in order to remove sensitive content from public distribution. </h5><br>
+    <h5>OCR Anonymization will allow the permanent removal of confidential information – citizens ‘and business partners’ personal data, signatures…, while other information in the document remains machine-readable. </h5><br>
+    <h5>Mark-page Anonymization will allow the permanent removal of confidential information – citizens ‘and business partners’ personal data, signatures…, from scanned documents. </h5><br>
+  </div>
+<div class="flex-container">
+  <div class="first">
+
+
+    <img style=" max-width: 120px;" src="../../assets/img/logo2.png">
+  </div>
+  <div>
+    <ul>
+      <li>Hiding whole words/images with a single click,</li>
+      <li>The ability to “draw” any blocks where the content should be blurred,</li>
+      <li>Easy revision of incorrectly hidden areas.</li>
+    </ul>
+    <br>
+
+  </div>
+</div>
+</div>
+
+

@@ -1,65 +1,101 @@
-<section>
-  <h2> 2- select the area, and select the method </h2>
-
-  <nav>
-    <ol class="cd-multi-steps text-bottom count">
-      <li class="visited"><a href="main">Upload</a></li>
-      <li class="visited" ><em href="#0">Page</em></li>
-      <li class="current"><em>Anonymization</em></li>
-      <li><em>Review</em></li>
-    </ol>
-  </nav>
-</section>
-<mat-card class="example-card">
-  <div class="box">
-    <mat-card-actions>
-<!--      <button mat-raised-button id="anonymize" (click)="anonymize3()"> </button>-->
-<!--      <button mat-raised-button id="anonymize2" (click)="anonymize2()"></button>-->
-      Anonimize with mark-page <mat-slide-toggle  #toggle></mat-slide-toggle>Anonymize with OCR
-<!--      <button mat-raised-button  id="home" (click)="goback()">select another file</button>-->
-      <button mat-raised-button [disabled]="!added" id="launch" ><a   (click)="generate(toggle)" >Preview</a></button>
-<!--      <button mat-raised-button  id="download" ><a target="_blank"  href="http://0.0.0.0:8080/anonym/{{path}}">finalize anonymisation</a></button>-->
-      <button mat-raised-button [disabled]="!added" id="review" ><a (click)="review(toggle)" >finalize anonymisation</a></button>
-
-<!--<a class="btn btn-primary" data-target="#modalIMG" data-toggle="modal" >View Image</a>-->
-<!--      <div aria-hidden="true" aria-labelledby="myModalLabel" class="modal fade" id="modalIMG" role="dialog" tabindex="-1">-->
-<!--        <div class="modal-dialog modal-lg" role="document">-->
-<!--          <div class="modal-content">-->
-<!--            <div class="modal-body mb-0 p-0">-->
-<!--              <img src="https://i3.ytimg.com/vi/vr0qNXmkUJ8/maxresdefault.jpg" alt="" style="width:100%">-->
-<!--            </div>-->
-<!--            <div class="modal-footer">-->
-<!--              <div><a href="https://i3.ytimg.com/vi/vr0qNXmkUJ8/maxresdefault.jpg" target="_blank">Download</a></div>-->
-<!--              <button class="btn btn-outline-primary btn-rounded btn-md ml-4 text-center" data-dismiss="modal" type="button">Close</button>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-
-    </mat-card-actions>
-
-  </div>
-
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>{{name}}</mat-card-title>
-    <mat-card-subtitle>page N : {{page}}</mat-card-subtitle>
-    <div class="col-md-5">
-      <mat-label   *ngIf="!toggle.checked" style="margin-right: 10px">click here to choose the color</mat-label>
-      <input [style.background]="color1" style="border: black solid" *ngIf="!toggle.checked" [(colorPicker)]="color1" (colorPickerOpen)="onEventLog('colorPickerOpen', $event)" (colorPickerClose)="onEventLog('colorPickerClose', $event)" (cpInputChange)="onEventLog('cpInputChange', $event)" (cpSliderDragStart)="onEventLog('cpSliderDragStart', $event)" (cpSliderDragEnd)="onEventLog('cpSliderDragEnd', $event)"/>
+<div class="flex-container with-margin-top">
+  <div _ngcontent-lye-c6="" style=" display: flex;
+  flex-direction: row;
+flex-wrap: wrap">
+    <div _ngcontent-lye-c6="">
+      <h2 _ngcontent-lye-c6="" style="margin-top: 9%; color: #d25f29"> 3- Select the area, and select the method </h2>
     </div>
-  </mat-card-header>
-
-<!--  <img id="image2"  mat-card-image src="http://localhost:8080/image/{{path}}/{{page}}" alt="Photo of the page N : {{page}}" >-->
-    <!--  <img id="image" (mousemove)="show($event)" (mouseleave)="leave($event)" mat-card-image src="" >-->
-  <div class="img-container">
-    <img #image class="imaage"  src="http://0.0.0.0:8080/image/{{path}}/{{page}}" crossorigin>
+    <div _ngcontent-lye-c6="" style="/* flex-grow: 8 */margin-left: auto;">
+      <nav _ngcontent-lye-c6="" style="width: inherit;min-width: 500px;">
+        <ol _ngcontent-lye-c6="" class="cd-multi-steps text-bottom count">
+          <li _ngcontent-lye-c6="" class="visited"><a _ngcontent-lye-c6="" href="#0">Upload file(s)</a></li>
+          <li _ngcontent-lye-c6="" class="visited"><a _ngcontent-lye-c6="" href="#0">Select page</a></li>
+          <li _ngcontent-lye-c6="" class="current"><em _ngcontent-lye-c6="">Customize anonymization</em></li>
+          <li _ngcontent-lye-c6=""><em _ngcontent-lye-c6="">Download file</em></li>
+        </ol>
+      </nav>
+    </div>
   </div>
-  <mat-card-content>
-    <button id="addzone" mat-raised-button (click)="addzone()">Add the Selectedzone</button>
-    <h6 style="font-family: fantasy; padding: 0.7em"> Preview of the current selection</h6>
-    <img [src]="imageDestination" class="img-preview">
 
-  </mat-card-content>
-</mat-card>
 
+
+  <div _ngcontent-boj-c4="" class="col-md-12" style="border-bottom:3px  solid #d26029; margin-bottom: 10px "></div>
+
+
+<div >
+
+          <div  id="mySidenav" class="sidenav with-margin-top" >
+            <div style="">
+                <!--      <button mat-raised-button id="anonymize" (click)="anonymize3()"> </button>-->
+                <!--      <button mat-raised-button id="anonymize2" (click)="anonymize2()"></button>-->
+           <div style="margin-bottom: 25px; height: 55px; background-color: #d25f29;">
+            </div>
+              <div style="    top: 14px;font-weight: bolder;left: 35px;font-size: 17px;position: absolute; color: #1d2150;"> SETTING            </div>
+
+<!--              <img class="closebtn" id="closebtn" style="top: 5px; right: 1%;width: 40px" [src]="urlNav" (click)="openNav()">-->
+              <div style="  margin-left: 35px;  margin-bottom: 10px;"> <mat-slide-toggle [checked]="!toggle1.checked" #toggle>Anonymize with OCR </mat-slide-toggle></div>
+            <div style="  margin-left: 35px;  margin-bottom: 10px;">  <mat-slide-toggle [checked]="!toggle.checked" #toggle1>Anonymize with blocks </mat-slide-toggle></div>
+                <div style="  margin-left: 20px;  margin-bottom: 10px;">
+                  <mat-label   *ngIf="!toggle.checked" style="    margin-bottom: 10px;">click here to choose the color</mat-label>
+                  <input  [style.background]="color1" style="border: black solid" *ngIf="!toggle.checked" [(colorPicker)]="color1" (colorPickerOpen)="onEventLog('colorPickerOpen', $event)" (colorPickerClose)="onEventLog('colorPickerClose', $event)" (cpInputChange)="onEventLog('cpInputChange', $event)" (cpSliderDragStart)="onEventLog('cpSliderDragStart', $event)" (cpSliderDragEnd)="onEventLog('cpSliderDragEnd', $event)"/>
+                </div>
+            <div style="margin-left: 35px">
+              <mat-form-field>
+                <mat-label>Change Page Selection</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let page of pages" [value]="page">
+                    {{page}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+            </div>
+          </div>
+          </div>
+      <div class="wrapper1"  id="wrapper1" >
+<!--                <button role="button" class="menu-toggle" (click)="toggleClass()">-->
+<!--                  <span class="icon-bars"></span>-->
+<!--                </button>-->
+        <button  mat-icon-button aria-label="Example icon-button with a heart icon" (click)="(toggleClass())">
+          <img  [class.logo_angrenage]="sidenav" src="../assets/img/settings.svg" style="width: 38px ; ">
+          <!--        <i class="fas fa-question-circle"></i>-->
+        </button>
+
+      </div>
+
+
+
+
+      <div>
+          <div class="flex-container2">
+            <div>
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>{{name}}</mat-card-title>
+              <mat-card-subtitle>page N : {{page}}</mat-card-subtitle>
+
+            </mat-card-header>
+          </div >
+            <div style="   position: absolute; right: 29%; "> <button mat-raised-button class="buttonStyle"   id="download"    type="button"  (click)="generate(toggle)"  style="border: #335599; font-size: 2rem; min-width: 131px; font-family: Roboto, Helvetica Neue, sans-serif;margin-left: 10px;"  >   Preview</button>
+              <button mat-raised-button id="launch"   class="buttonStyle"    type="button"  (click)="review(toggle)"  style="border: #335599; font-size: 2rem; font-family: Roboto, Helvetica Neue, sans-serif; min-width: 131px; margin-left: 10px;"  >Anonymize</button>
+            </div>
+          </div>
+
+
+       <div class="img-container">
+              <img #image class="imaage"  [src]="src" crossorigin>
+            </div>
+          <div style="padding-left: 0.7em" class="flex-container">
+
+            <div><button  mat-raised-button class="btn btn-primary" id="addzone"   type="button" (click)="addzone()" style="border: #335599; background-color: #1d2150;  font-size: 1.6rem; font-family: Roboto, Helvetica Neue, sans-serif"  >Add a new zone</button> </div>
+            <div>
+            <mat-card-content>
+              <h6 style="  font-family: Roboto, Helvetica Neue, sans-serif ;    margin-bottom: 10px; margin-top: 10px; margin-left: 2%; "> Preview of the current selection</h6>
+              <img [src]="imageDestination" class="img-preview">
+
+            </mat-card-content>
+            </div>
+            </div>
+        </div>
+</div>
+</div>
