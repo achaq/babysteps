@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {FileUploader} from 'ng2-file-upload';
+import {FileItem, FileUploader} from 'ng2-file-upload';
 // import {ToastrService} from 'ngx-toastr';
 import {environment} from '../../environments/environment.prod';
 
@@ -33,12 +33,13 @@ export class PdfUploaderComponent implements OnInit {
   private filesToUpload: Array<File>;
   private maxFileSize = 20 * 1024 * 1024;
   private size = 0;
-  private draftList = [];
+  private names: Array<string>;
   public path = '';
 
   constructor(private router: Router, private http: HttpClient, private toastr: ToastrService,
   ) {
     this.filesToUpload = [];
+    this.names = [];
   }
 
 
@@ -53,6 +54,8 @@ export class PdfUploaderComponent implements OnInit {
       this.hasBaseDropZoneOver = false;
       file.withCredentials = false;
       console.log(file);
+      this.uploader.uploadItem(file);
+
     };
     this.uploader.onCompleteItem = (item: any, status: any) => {
       console.log('Uploaded File Details:', item);
@@ -63,7 +66,7 @@ export class PdfUploaderComponent implements OnInit {
       if (this.path != '') {
         this.done = true;
       }
-      console.log(this.path);
+      this.names.push(this.path);
     };
 
   }
@@ -88,22 +91,23 @@ export class PdfUploaderComponent implements OnInit {
   clearFileList() {
     this.uploader.clearQueue();
     this.filesToUpload = [];
+    this.names = [];
   }
 
-  removeFile(file: File) {
-    const index = this.filesToUpload.indexOf(file);
-    this.size -= file.size;
+  removeFile(item: FileItem) {
+    const index = this.filesToUpload.indexOf(item._file);
+    console.log(index)
+    this.size -= item.file.size;
+    this.names.splice(index, 1);
     this.filesToUpload.splice(index, 1);
+    console.log(this.names);
   }
 
 
-  openDialogManual() {
-    console.log('we should create a diolog ');
-  }
 
   next() {
-    console.log('this paaath ' + this.path)
-    this.router.navigate(['page'], {state: {data: { path : this.path, name : this.name}}});
+    console.log('this paaath ' + this.path);
+    this.router.navigate(['page'], {state: {data: { path : this.path, docs : this.names, name : this.name}}});
   }
 }
 
