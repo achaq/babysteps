@@ -96,7 +96,7 @@ export class PdfUploaderComponent implements OnInit {
 
   removeFile(item: FileItem) {
     const index = this.filesToUpload.indexOf(item._file);
-    console.log(index)
+    console.log(index);
     this.size -= item.file.size;
     this.names.splice(index, 1);
     this.filesToUpload.splice(index, 1);

@@ -46,6 +46,7 @@ export class PdfViewerComponent implements AfterViewInit {
   checked1 = false;
   public sidenav = false;
   private urlNav = 'https://static.thenounproject.com/png/1195185-200.png';
+  private docs: Array<string>;
 
 
   // tslint:disable-next-line:max-line-length
@@ -55,6 +56,7 @@ export class PdfViewerComponent implements AfterViewInit {
     this.page = this.route.getCurrentNavigation().extras.state.data.page;
     this.path = this.route.getCurrentNavigation().extras.state.data.path;
     this.name = this.route.getCurrentNavigation().extras.state.data.name;
+    this.docs = this.route.getCurrentNavigation().extras.state.data.docs;
     this.Zone = 1;
     this.src = environment.baseUrl + '/image/' + this.path + '/' + this.page;
     document.getElementById('spacer2').style.padding = '20px';
@@ -87,30 +89,32 @@ export class PdfViewerComponent implements AfterViewInit {
   }
 
   addzone() {
-    this.Zone = this.Zone + 1;
-    console.log(this.X);
-    console.log(this.Y);
-    console.log(this.W);
-    console.log(this.H);
+
     this.XT.push(this.X);
     this.YT.push(this.Y);
     this.HT.push(this.H);
     this.WT.push(this.W);
     this.added = true;
-    const element = document.createElement('div');
-    const SX = (this.X * 0.68).toString() + 'px';
-    const SH = (this.H * 0.68).toString() + 'px';
-    const SW = (this.W * 0.68).toString() + 'px';
-    const SY = (this.Y * 0.68).toString() + 'px';
-    element.style.height = SH;
-    element.style.width = SW;
-    element.style.left = SX;
-    element.style.top = SY;
-    element.style.borderColor = '#ffffff';
-    element.style.backgroundColor = '#777';
-    element.style.position = 'absolute';
-    element.style.zIndex = '1000';
-    document.body.getElementsByClassName('cropper-drag-box cropper-crop cropper-modal')[0].appendChild(element);
+    this.Zone = this.Zone + 1;
+    console.log(this.XT);
+    console.log(this.YT);
+    console.log(this.WT);
+    console.log(this.HT);
+    console.log(this.Zone);
+    // const element = document.createElement('div');
+    // const SX = (this.X * 0.68).toString() + 'px';
+    // const SH = (this.H * 0.68).toString() + 'px';
+    // const SW = (this.W * 0.68).toString() + 'px';
+    // const SY = (this.Y * 0.68).toString() + 'px';
+    // element.style.height = SH;
+    // element.style.width = SW;
+    // element.style.left = SX;
+    // element.style.top = SY;
+    // element.style.borderColor = '#ffffff';
+    // element.style.backgroundColor = '#777';
+    // element.style.position = 'absolute';
+    // element.style.zIndex = '1000';
+    // document.body.getElementsByClassName('cropper-drag-box cropper-crop cropper-modal')[0].appendChild(element);
 
   }
 
@@ -215,7 +219,7 @@ export class PdfViewerComponent implements AfterViewInit {
       method = 1;
     }
     // tslint:disable-next-line:max-line-length
-    this.route.navigate(['/review'], {state: {data: { path : this.path, page : this.page , name : this.name, Z: this.Zone, X: this.XT, Y: this.YT, W: this.WT, H: this.HT, C: this.color1, Method: method}}});
+    this.route.navigate(['/review'], {state: {data: {path: this.path , docs: this.docs , page : this.page , name : this.name, Z: this.Zone, X: this.XT, Y: this.YT, W: this.WT, H: this.HT, C: this.color1, Method: method}}});
   }
 
 
@@ -263,6 +267,11 @@ export class PdfViewerComponent implements AfterViewInit {
       // document.getElementById('closebtn').style.left = 'unset';
       this.sidenav = true;
     }
+  }
+
+  colorpick() {
+    // @ts-ignore
+    document.getElementsByClassName('color-picker')[0].style.position = 'initial';
   }
 }
 

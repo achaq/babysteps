@@ -15,6 +15,7 @@ export class PageComponent implements OnInit {
   private page: number;
   name: any;
   public succ: boolean;
+  private docs: Array<string>;
 
   constructor(private router: Router, private formBuilder: FormBuilder, private http: HttpClient) {
 
@@ -22,9 +23,8 @@ export class PageComponent implements OnInit {
     this.path = this.router.getCurrentNavigation().extras.state.data.path;
     console.log('paaath : ' + this.path);
     this.name = this.router.getCurrentNavigation().extras.state.data.name;
+    this.docs = this.router.getCurrentNavigation().extras.state.data.docs;
     console.log(this.name);
-
-
   }
 
   ngOnInit() {
@@ -52,7 +52,7 @@ export class PageComponent implements OnInit {
     this.http.post(URL, {page : this.page, path : this.path}).subscribe(status => {
       console.log('we are back ');
       console.log(JSON.stringify(status));
-      this.router.navigate(['/pdf'], {state: {data: { path : this.path, page : this.page , name : this.name}}});
+      this.router.navigate(['/pdf'], {state: {data: { path : this.path, docs : this.docs , page : this.page , name : this.name}}});
     });
   }
 

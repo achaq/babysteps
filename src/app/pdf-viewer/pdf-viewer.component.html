@@ -8,9 +8,9 @@ flex-wrap: wrap">
     <div _ngcontent-lye-c6="" style="/* flex-grow: 8 */margin-left: auto;">
       <nav _ngcontent-lye-c6="" style="width: inherit;min-width: 500px;">
         <ol _ngcontent-lye-c6="" class="cd-multi-steps text-bottom count">
-          <li _ngcontent-lye-c6="" class="visited"><a _ngcontent-lye-c6="" href="#0">Upload file(s)</a></li>
-          <li _ngcontent-lye-c6="" class="visited"><a _ngcontent-lye-c6="" href="#0">Select page</a></li>
-          <li _ngcontent-lye-c6="" class="current"><em _ngcontent-lye-c6="">Customize anonymization</em></li>
+          <li _ngcontent-lye-c6="" class="visited"><em _ngcontent-lye-c6="" href="#0">Upload file(s)</em></li>
+          <li _ngcontent-lye-c6="" class="visited"><em _ngcontent-lye-c6="" href="#0">Select page</em></li>
+          <li _ngcontent-lye-c6="" class="current"><em _ngcontent-lye-c6="">Define settings</em></li>
           <li _ngcontent-lye-c6=""><em _ngcontent-lye-c6="">Download file</em></li>
         </ol>
       </nav>
@@ -33,11 +33,12 @@ flex-wrap: wrap">
               <div style="    top: 14px;font-weight: bolder;left: 35px;font-size: 17px;position: absolute; color: #1d2150;"> SETTING            </div>
 
 <!--              <img class="closebtn" id="closebtn" style="top: 5px; right: 1%;width: 40px" [src]="urlNav" (click)="openNav()">-->
-              <div style="  margin-left: 35px;  margin-bottom: 10px;"> <mat-slide-toggle [checked]="!toggle1.checked" #toggle>Anonymize with OCR </mat-slide-toggle></div>
-            <div style="  margin-left: 35px;  margin-bottom: 10px;">  <mat-slide-toggle [checked]="!toggle.checked" #toggle1>Anonymize with blocks </mat-slide-toggle></div>
+              <div style="  text-align-last: center; font-weight: bolder;font-size: 17px;color: #1d2150;"> Technique used            </div>
+              <div style="       margin-top: 9px;  margin-left: 35px;  margin-bottom: 10px;">Area Selections  <mat-slide-toggle checked  #toggle>OCR </mat-slide-toggle></div>
+<!--            <div style="  margin-left: 35px;  margin-bottom: 10px;">  <mat-slide-toggle [checked]="!toggle.checked" #toggle1> </mat-slide-toggle></div>-->
                 <div style="  margin-left: 20px;  margin-bottom: 10px;">
                   <mat-label   *ngIf="!toggle.checked" style="    margin-bottom: 10px;">click here to choose the color</mat-label>
-                  <input  [style.background]="color1" style="border: black solid" *ngIf="!toggle.checked" [(colorPicker)]="color1" (colorPickerOpen)="onEventLog('colorPickerOpen', $event)" (colorPickerClose)="onEventLog('colorPickerClose', $event)" (cpInputChange)="onEventLog('cpInputChange', $event)" (cpSliderDragStart)="onEventLog('cpSliderDragStart', $event)" (cpSliderDragEnd)="onEventLog('cpSliderDragEnd', $event)"/>
+                  <input  [style.background]="color1" style="border: black solid"  *ngIf="!toggle.checked" [(colorPicker)]="color1" (colorPickerOpen)="onEventLog('colorPickerOpen', $event)" (colorPickerClose)="onEventLog('colorPickerClose', $event)" (cpInputChange)="onEventLog('cpInputChange', $event)" (cpSliderDragStart)="onEventLog('cpSliderDragStart', $event)" (cpSliderDragEnd)="onEventLog('cpSliderDragEnd', $event)"/>
                 </div>
             <div style="margin-left: 35px">
               <mat-form-field>
@@ -76,9 +77,7 @@ flex-wrap: wrap">
 
             </mat-card-header>
           </div >
-            <div style="   position: absolute; right: 29%; "> <button mat-raised-button class="buttonStyle"   id="download"    type="button"  (click)="generate(toggle)"  style="border: #335599; font-size: 2rem; min-width: 131px; font-family: Roboto, Helvetica Neue, sans-serif;margin-left: 10px;"  >   Preview</button>
-              <button mat-raised-button id="launch"   class="buttonStyle"    type="button"  (click)="review(toggle)"  style="border: #335599; font-size: 2rem; font-family: Roboto, Helvetica Neue, sans-serif; min-width: 131px; margin-left: 10px;"  >Anonymize</button>
-            </div>
+
           </div>
 
 
@@ -96,6 +95,10 @@ flex-wrap: wrap">
             </mat-card-content>
             </div>
             </div>
+
         </div>
 </div>
+  <div style="display: flex; justify-content: center; margin-top: 15px;   padding-inline-end: 20% "> <button mat-raised-button class="buttonStyle"   id="download"    type="button"  (click)="generate(toggle)"  style="border: #335599; font-size: 2rem; min-width: 131px; font-family: Roboto, Helvetica Neue, sans-serif;margin-left: 10px;"  >   Preview</button>
+    <button mat-raised-button id="launch"   class="buttonStyle"    type="button"  (click)="review(toggle)"  style="border: #335599; font-size: 2rem; font-family: Roboto, Helvetica Neue, sans-serif; min-width: 131px; margin-left: 10px;"  >Next</button>
+  </div>
 </div>

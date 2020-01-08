@@ -47,7 +47,6 @@ html, body { height: 100%; }
 }
 .nl-rnd-border {
   border: dotted 1px #959fa5;
-
   padding: 10px;
 }
 .nl-btn-pad {
@@ -64,21 +63,18 @@ html, body { height: 100%; }
 }
 
 
-.nl-rmAll-col{
-  margin-left: 10px;
-}
+
 
 .btn btn-primary{
   background-color: #1d2150;
-
 }
+
 .mat-progress-bar{
   height: 12px;
 }
 .flex-container {
   display: flex;
   flex-direction: column;
-
 }
 
 .well.my-drop-zone.text-center:hover{
@@ -89,3 +85,11 @@ html, body { height: 100%; }
 }
 
 
+.dragdrop:hover{
+  background-color: #d25f29 !important;
+}
+
+.buttonattach :hover {
+  background-color: #d25f29 !important;
+
+}

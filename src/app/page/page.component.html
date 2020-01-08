@@ -9,9 +9,9 @@ flex-wrap: wrap">
     <div _ngcontent-lye-c6="" style="/* flex-grow: 8 */margin-left: auto;">
       <nav _ngcontent-lye-c6="" style="width: inherit;min-width: 500px;">
         <ol _ngcontent-lye-c6="" class="cd-multi-steps text-bottom count">
-          <li _ngcontent-lye-c6="" class="visited"><a _ngcontent-lye-c6="" href="#0">Upload file(s)</a></li>
+          <li _ngcontent-lye-c6="" class="visited"><em _ngcontent-lye-c6="" href="#0">Upload file(s)</em></li>
           <li _ngcontent-lye-c6="" class="current"><em _ngcontent-lye-c6="" href="#0">Select page</em></li>
-          <li _ngcontent-lye-c6="" class=""><em _ngcontent-lye-c6="">Customize anonymization</em></li>
+          <li _ngcontent-lye-c6="" class=""><em _ngcontent-lye-c6="">Define settings</em></li>
           <li _ngcontent-lye-c6=""><em _ngcontent-lye-c6="">Download file</em></li>
         </ol>
       </nav>
@@ -41,14 +41,14 @@ flex-wrap: wrap">
   <mat-form-field>
     <input type="number"  matInput value="1" min="1" max="10" required placeholder="Page Number" formControlName="page" id="pages"  class="example-right-align">
   </mat-form-field>
-  <h6><small>The files are only used to perform the automatic process of anonymisation. The original documents are immediately deleted when the anonymisation process is finished. The anonymized documents are available for download until you close the web page.</small></h6>
+  <h6><small>For a proper performance of this tool, all the pages of your file(s) must have the same template.</small></h6>
 </form>
 </section>
 </mat-card>
  </div>
 <div class="flex-container2">
   <div style="margin-right: 10px">
-  <button    matTooltip="Go back to choose the file" mat-raised-button class="buttonStyle"  type="button" (click)="goback()"  style=" font-size: 2rem; width: 200px;   font-family: Roboto, Helvetica Neue, sans-serif ;"  >Back</button>
+  <button    matTooltip="Go back to choose the file" mat-raised-button class="buttonStyle"  type="button" (click)="goback()"  style=" font-size: 2rem; width: 200px;   font-family: Roboto, Helvetica Neue, sans-serif ;"  >Cancel</button>
   </div>
   <div style="margin-left: 10px">
     <!--          <button   class="btn btn-primary"  [disabled]="1" type="button" >Back</button>-->

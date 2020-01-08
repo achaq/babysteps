@@ -128,3 +128,6 @@ mat-toolbar:after {
   color: white;
   background-color: #1d2150; ;
 }
+.color-picker{
+  position: initial !important;
+}
