@@ -1,0 +1,62 @@
+
+{
+  "app": {
+  "home": {
+    "title": "Commencer l'anonymisation",
+    "text": "PDF Anonymization est conçue pour anonymiser les documents PDF afin de supprimer les contenus sensibles (données personnelles, signatures…) ou les informations confidentielles permettant la diffusion de documents conformes au RGPD",
+    "list" : {
+          "one": "Masquer des mots / images entiers en un seul clic.",
+          "two": "Faciliter la révision du processus pré-validation.",
+          "three": "Assurer la conformité au RGPD."
+            },
+    "tool" : "Initier l'anonymisation",
+    "help": "Aide",
+    "translate" : "FR/EN"
+  },
+
+
+    "upload" : {
+      "title" :  "Téléverser le (s) fichier (s)",
+      "text1" :"Commencez par téléverser vos fichiers",
+      "text2" : "Les documents originaux sont immédiatement supprimés lorsque le processus d'anonymisation est terminé. Les documents anonymisés peuvent être téléchargés à la fin du processus",
+      "progress": "Progrès",
+      "number" : "Nombre de fichiers",
+      "remove" : "Enlever tout",
+      "tool" : "Enlever tous les fichiers",
+      "tool2" : "Cliquer ici pour sélectionner la page",
+      "next" : "Suivant",
+      "attach" : "Joindre un fichier / glisser-déposer ici ",
+      "name": "Nom",
+      "size" :  "Taille",
+      "status" : "Statut",
+      "actions" : "Actions"
+    },
+
+    "steps": {
+      "one": "Téléverser le fichier",
+      "two": "Sélectionner la page",
+      "three": "Définir les paramètres",
+      "four" :  "Télécharger un fichier"
+    },
+    "page": {
+      "title" : "sélectionner la page",
+      "warning" : "Si votre fichier contient plusieurs pages, sélectionner celle où vous souhaitez sélectionner les zones à anonymiser",
+      "warning2": "Pour une bonne performance de cet outil, toutes les pages de vos fichiers doivent avoir le même modèle.",
+      "cancel" : "Annuler",
+      "tool" :  "Lancer l'anonymisation",
+      "tool2" : "Réinitialiser le choix du fichier(s)"
+    },
+    "pdf_view": {
+      "title" : "Sélectionner la zone",
+      "add" : "Ajouter une nouvelle zone",
+      "preview" : "Aperçu de la sélection actuelle",
+      "preview2" : "Aperçu"
+    },
+    "review": {
+      "title" : "Finaliser",
+      "done" : "Le fichier est téléchargé",
+      "progress" : "Chargement de fichier en cours",
+      "notdone" : "Le fichier n'a pas pu être anonymisé",
+    }
+  }
+}

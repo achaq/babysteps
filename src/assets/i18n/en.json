@@ -1,0 +1,58 @@
+
+{
+  "app": {
+  "home": {
+    "title": "Start anonyimization",
+    "text": "PDF Anonymization is designed to anonymize PDF documents in order to remove sensitive content (personal data, signatures…) or confidential information allowing document diffusion with GDPR compliance",
+  "list" : {
+          "one": "Hiding whole words/images with a single click,",
+          "two": "Easy revision of the process before validation",
+          "three": "GDPR compliant"
+            },
+    "tool" : "Start the magic",
+    "help": "help",
+    "translate" : "EN/FR"
+  },
+
+
+    "upload" : {
+      "title" :  "Upload the file(s)",
+      "text1" :"Start by uploading your file(s)",
+      "text2" : "The files are only used to perform the automatic process of anonymisation. The original documents are immediately deleted when the anonymisation process is finished. The anonymized documents are available for download until you close the web page",
+      "progress": "Progress",
+      "number" : "Number of files",
+      "remove" : "Remove All",
+      "tool" : "Remove all the files",
+      "tool2" : "click here to select the page",
+      "next" : "Next",
+      "attach" : "Attach file / Drag & Drop here"
+    },
+
+    "steps": {
+      "one": "Upload file(s)",
+      "two": "Select page",
+      "three": "Define settings",
+      "four" :  "Download file"
+    },
+    "page": {
+      "title" : " Select the page",
+      "warning" : " If your file contains several pages, select the one where you want to select the areas that should be anonymized:",
+      "warning2": "For a proper performance of this tool, all the pages of your file(s) must have the same template.",
+      "cancel" : "Cancel",
+      "tool" :  "Let's fire the magic",
+      "tool2" : "Go back to choose the file"
+    },
+    "pdf_view": {
+      "title" : "Select the area, and select the method",
+      "add" : "Add a new zone",
+      "preview" : "Preview of the current selection",
+      "preview2" : "preview"
+    },
+    "review": {
+      "title" : "Finalize",
+      "done" : "File is downloaded",
+      "progress" : "File loading in progress",
+      "notdone" : "File could not be anonymized"
+    }
+}
+}

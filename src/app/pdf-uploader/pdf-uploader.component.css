@@ -44,6 +44,7 @@ html, body { height: 100%; }
 .nl-rmAll-col {
   background-color: #f48f4d; ;
   color: white;
+  margin-top: 10px;
 }
 .nl-rnd-border {
   border: dotted 1px #959fa5;

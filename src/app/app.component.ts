@@ -6,6 +6,7 @@ import {FormBuilder} from '@angular/forms';
 import {ToastrService} from 'ngx-toastr';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material/dialog';
 import {HelpComponent} from './help/help.component';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -15,8 +16,9 @@ import {HelpComponent} from './help/help.component';
 export class AppComponent implements OnInit {
   title = 'pdf anonym';
 
-  constructor(private router: Router, private dialog: MatDialog) {
+  constructor(private router: Router, private dialog: MatDialog,  private translate: TranslateService) {
     this.router.navigate(['principale']);
+    translate.setDefaultLang('fr');
   }
 
   ngOnInit(): void {
@@ -34,6 +36,10 @@ export class AppComponent implements OnInit {
     dialogConfig.height = '80%';
     // dialogConfig.closeOnNavigation = true;
     this.dialog.open(HelpComponent, dialogConfig);
+  }
+
+  useLanguage(language: string) {
+    this.translate.use(language);
   }
 }
 

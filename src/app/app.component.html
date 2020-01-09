@@ -8,19 +8,19 @@
 
     <span class="spacer"></span>
     <div style="z-index: 3">
-      <button  mat-icon-button matTooltip="Help" (click)="openDialog()">
+      <button  mat-icon-button matTooltip="{{ 'app.home.help' | translate }}" (click)="openDialog()">
         <img id="logoprinc" src="../assets/img/information.svg" style="width: 38px ; ">
 
 <!--        <i class="fas fa-question-circle"></i>-->
       </button>
       <span class="spacer3"></span>
-      <button  mat-icon-button matTooltip="translate" hidden [matMenuTriggerFor]="menu" >
+      <button  mat-icon-button matTooltip="{{ 'app.home.translate' | translate }}" [matMenuTriggerFor]="menu" >
         <img id="logolanguage" src="../assets/img/translate.svg" style="width: 38px ; ">
         <!--        <i class="fas fa-question-circle"></i>-->
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>FR</button>
-        <button mat-menu-item>ENG</button>
+        <button (click)="useLanguage('fr')" mat-menu-item>FR</button>
+        <button  (click)="useLanguage('en')" mat-menu-item>ENG</button>
       </mat-menu>
       <span id="spacer2" class="spacer2"></span>
 

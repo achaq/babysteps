@@ -5,15 +5,15 @@
   flex-direction: row;
 flex-wrap: wrap">
     <div _ngcontent-lye-c6="">
-      <h2 _ngcontent-lye-c6="" style="margin-top: 9%; color: #d25f29"> 4-Finalize </h2>
+      <h2 _ngcontent-lye-c6="" style="margin-top: 9%; color: #d25f29"> 4-{{'app.review.title' |translate}} </h2>
     </div>
     <div _ngcontent-lye-c6="" style="/* flex-grow: 8 */margin-left: auto;">
       <nav _ngcontent-lye-c6="" style="width: inherit;min-width: 500px;">
         <ol _ngcontent-lye-c6="" class="cd-multi-steps text-bottom count">
-          <li _ngcontent-lye-c6="" class="visited"><em _ngcontent-lye-c6="" href="#0">Upload file(s)</em></li>
-          <li _ngcontent-lye-c6="" class="visited"><em _ngcontent-lye-c6="" href="#0">Select page</em></li>
-          <li _ngcontent-lye-c6="" class="visited"><em _ngcontent-lye-c6="" href="#0">Define settings</em></li>
-          <li _ngcontent-lye-c6="" class="current" ><em _ngcontent-lye-c6="">Download file</em></li>
+          <li _ngcontent-lye-c6="" class="visited"><em _ngcontent-lye-c6="" href="#0">{{ 'app.steps.one' | translate }}</em></li>
+          <li _ngcontent-lye-c6="" class="visited"><em _ngcontent-lye-c6="" href="#0">{{ 'app.steps.two' | translate }}</em></li>
+          <li _ngcontent-lye-c6="" class="visited"><em _ngcontent-lye-c6="" href="#0">{{ 'app.steps.three' | translate }}</em></li>
+          <li _ngcontent-lye-c6="" class="current" ><em _ngcontent-lye-c6="">{{ 'app.steps.four' | translate }}</em></li>
         </ol>
       </nav>
     </div>
@@ -24,13 +24,13 @@ flex-wrap: wrap">
 <div style="text-align:center" *ngIf="!succ && !end">
   <i _ngcontent-dbo-c13="" class="fa-3x fas fa-circle-notch fa-spin" style="color: #c0680f;"></i>
   <br><br>
-  <span style="font-size: 2.6rem;">File loading in progress</span>
+  <span style="font-size: 2.6rem;">{{'app.review.progress' |translate}} </span>
 </div>
 
 <div style="text-align:center" *ngIf="succ">
   <i class="fa-3x fas fa-check-circle" style="color: green"></i>
   <br><br>
-  <span style="font-size: 2.6rem;">File is downloaded</span>
+  <span style="font-size: 2.6rem;">{{'app.review.done' |translate}}</span>
 </div>
 
 
@@ -38,7 +38,7 @@ flex-wrap: wrap">
 <div style="text-align:center" *ngIf="end">
   <i class="fa-3x fas fa-times-circle" style="color: red"></i>
   <br><br>
-  <span style="font-size: 2.6rem;">File could not be anonymized</span>
+  <span style="font-size: 2.6rem;">{{'app.review.notdone' |translate}}</span>
 </div>
 
 

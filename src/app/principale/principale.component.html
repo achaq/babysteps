@@ -1,27 +1,10 @@
-<!--  <ng-template ngbSlide>-->
-<!--    <div class="picsum-img-wrapper">-->
-<!--      <img style="width: inherit; height: inherit" src="../../assets/img/better.png" alt="Random second slide">-->
-<!--    </div>-->
-<!--    <div class="carousel-caption">-->
-
-<!--    </div>-->
-<!--  </ng-template>-->
-<!--  <ng-template ngbSlide>-->
-<!--    <div class="picsum-img-wrapper">-->
-<!--      <img style="width: inherit; height: inherit" src="../../assets/img/betterway1.jpg"  alt="Random third slide">-->
-<!--    </div>-->
-<!--    <div class="carousel-caption">-->
-<!--    </div>-->
-<!--  </ng-template>-->
 
 <div class="flex-container1 with-margin-top">
 
   <div class="flex-container" style="color: #d26029; font-size: 30px;  ">
   <div  >
-<!--    <button mat-raised-button  style="font-size: 2.7rem; background-color : #1d2150; height: 60px; color: white" (click)="go_ahead()">START Anonymization </button>-->
-
-    <button matTooltip="start the magic" (click)="go_ahead()" class="button">
-      START Anonymization
+    <button matTooltip="{{ 'app.home.tool' | translate }}" (click)="go_ahead()" class="button">
+      {{ 'app.home.title' | translate }}
     </button>
   </div>
 
@@ -37,7 +20,7 @@
    <div class="col-md-12" style="border-bottom:3px solid #d26029; margin-top: -35px "></div>
 
   <div style="text-align: left; color: #666; " >
-    <h5>PDF Anonymization is designed to anonymize PDF documents in order to remove sensitive content (personal data, signatures…) or confidential information allowing document diffusion with GDPR compliance</h5><br>
+    <h5>      {{ 'app.home.text' | translate }} </h5><br>
   </div>
 <div class="flex-container" style="    margin-top: -60px;">
   <div class="first">
@@ -47,9 +30,9 @@
   </div>
   <div>
     <ul>
-      <li>Hiding whole words/images with a single click,</li>
-      <li>Easy revision of the process before validation</li>
-      <li>GDPR compliant</li>
+      <li>{{ 'app.home.list.one' | translate }}</li>
+      <li>{{ 'app.home.list.two' | translate }}</li>
+      <li>{{ 'app.home.list.three' | translate }}</li>
     </ul>
     <br>
 

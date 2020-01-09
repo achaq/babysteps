@@ -5,12 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PdfViewerComponent } from './pdf-viewer/pdf-viewer.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
 import {PdfUploaderComponent} from './pdf-uploader/pdf-uploader.component';
 import {FileUploadModule} from 'ng2-file-upload';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { PdfViewerModule } from 'ng2-pdf-viewer'; // <- import PdfViewerModule
-
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {
   MatButtonModule,
   MatCardModule,
@@ -79,11 +80,23 @@ import { HelpComponent } from './help/help.component';
     MatSelectModule,
     MatTooltipModule,
     MatMenuModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
     // ToastrModule added
-
   ],
   entryComponents : [PdfDialogComponent, HelpComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// required for AOT compilation
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http);
+}

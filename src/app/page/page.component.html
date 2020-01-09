@@ -4,15 +4,15 @@
   flex-direction: row;
 flex-wrap: wrap">
     <div _ngcontent-lye-c6="">
-      <h2 _ngcontent-lye-c6="" style="margin-top: 15%; color: #d25f29"> 2- Select the page</h2>
+      <h2 _ngcontent-lye-c6="" style="margin-top: 15%; color: #d25f29"> 2- {{ 'app.page.title' | translate }}</h2>
     </div>
     <div _ngcontent-lye-c6="" style="/* flex-grow: 8 */margin-left: auto;">
       <nav _ngcontent-lye-c6="" style="width: inherit;min-width: 500px;">
         <ol _ngcontent-lye-c6="" class="cd-multi-steps text-bottom count">
-          <li _ngcontent-lye-c6="" class="visited"><em _ngcontent-lye-c6="" href="#0">Upload file(s)</em></li>
-          <li _ngcontent-lye-c6="" class="current"><em _ngcontent-lye-c6="" href="#0">Select page</em></li>
-          <li _ngcontent-lye-c6="" class=""><em _ngcontent-lye-c6="">Define settings</em></li>
-          <li _ngcontent-lye-c6=""><em _ngcontent-lye-c6="">Download file</em></li>
+          <li _ngcontent-lye-c6="" class="visited"><em _ngcontent-lye-c6="" href="#0">{{ 'app.steps.one' | translate }}</em></li>
+          <li _ngcontent-lye-c6="" class="current"><em _ngcontent-lye-c6="" href="#0">{{ 'app.steps.two' | translate }}</em></li>
+          <li _ngcontent-lye-c6="" class=""><em _ngcontent-lye-c6="">{{ 'app.steps.three' | translate }}</em></li>
+          <li _ngcontent-lye-c6=""><em _ngcontent-lye-c6="">{{ 'app.steps.four' | translate }}</em></li>
         </ol>
       </nav>
     </div>
@@ -37,22 +37,22 @@ flex-wrap: wrap">
 
 
 <form [formGroup]="data" >
-  <h6 style="padding-bottom: 1em"> If your file contains several pages, select the one where you want to select the areas that should be anonymized:</h6>
+  <h6 style="padding-bottom: 1em">{{ 'app.page.warning' | translate }}</h6>
   <mat-form-field>
     <input type="number"  matInput value="1" min="1" max="10" required placeholder="Page Number" formControlName="page" id="pages"  class="example-right-align">
   </mat-form-field>
-  <h6><small>For a proper performance of this tool, all the pages of your file(s) must have the same template.</small></h6>
+  <h6><small>{{ 'app.page.warning2' | translate }}</small></h6>
 </form>
 </section>
 </mat-card>
  </div>
 <div class="flex-container2">
   <div style="margin-right: 10px">
-  <button    matTooltip="Go back to choose the file" mat-raised-button class="buttonStyle"  type="button" (click)="goback()"  style=" font-size: 2rem; width: 200px;   font-family: Roboto, Helvetica Neue, sans-serif ;"  >Cancel</button>
+  <button    matTooltip="{{ 'app.page.tool2' | translate }}" mat-raised-button class="buttonStyle"  type="button" (click)="goback()"  style=" font-size: 2rem; width: 200px;   font-family: Roboto, Helvetica Neue, sans-serif ;"  >{{ 'app.page.cancel' | translate }} </button>
   </div>
   <div style="margin-left: 10px">
     <!--          <button   class="btn btn-primary"  [disabled]="1" type="button" >Back</button>-->
-    <button   matTooltip="Let's fire the magic"  mat-raised-button  class="buttonStyle"  type="submit" (click)="onSubmit(data.value)"  style=" width: 200px; font-size: 2rem;   font-family: Roboto, Helvetica Neue, sans-serif ;"  >Next</button>
+    <button   matTooltip=" {{ 'app.page.tool' | translate }}"  mat-raised-button  class="buttonStyle"  type="submit" (click)="onSubmit(data.value)"  style=" width: 200px; font-size: 2rem;   font-family: Roboto, Helvetica Neue, sans-serif ;"  >{{ 'app.upload.next' | translate }}</button>
   </div>
 </div>
 
