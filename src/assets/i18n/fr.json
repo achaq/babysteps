@@ -56,7 +56,7 @@
       "title" : "Finaliser",
       "done" : "Le fichier est téléchargé",
       "progress" : "Chargement de fichier en cours",
-      "notdone" : "Le fichier n'a pas pu être anonymisé",
+      "notdone" : "Le fichier n'a pas pu être anonymisé"
     }
   }
 }
